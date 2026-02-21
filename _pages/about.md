@@ -337,6 +337,7 @@ redirect_from:
   <li><strong>Journal Reviewer</strong></li>
   <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
     <li>International Journal of Machine Learning and Cybernetics (IJMLC).</li>
+    <li>Transactions on Machine Learning Research (TMLR).</li>
   </ul>
 
 </ul>
