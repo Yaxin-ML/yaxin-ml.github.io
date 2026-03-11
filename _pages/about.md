@@ -357,7 +357,7 @@ redirect_from:
 
   <li><strong>Honor</strong></li>
   <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
-    <li>Merit Student (2025, Southeast University).</li>
+    <li>Merit Postgraduate (2025, Southeast University).</li>
     <li>Outstanding Postgraduate (2023, Henan University).</li>
     <li>Outstanding Graduate (2020, The Henan Department of Education).</li>
     <li>Merit Student (2020, The Henan Department of Education).</li>
