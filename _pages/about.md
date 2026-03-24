@@ -316,7 +316,7 @@ redirect_from:
   <li><strong>Conference Reviewer/Program Committee Member</strong></li>
   <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
     <li>The International Conference on Machine Learning (ICML), 2026.</li>
-    <li>The European Conferenceon Computer Vision (ECCV), 2026.</li>
+    <li>The European Conference on Computer Vision (ECCV), 2026.</li>
     <li>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
     <li>The Annual Conference on Neural Information Processing Systems (NeurIPS), 2025.</li>
     <li>The IEEE International Symposium on Machine Learning and Media Computing (MLMC), 2025-2026.</li>
