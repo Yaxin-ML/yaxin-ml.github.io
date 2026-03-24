@@ -158,6 +158,68 @@ redirect_from:
   .greedy-nav button {
   display: none !important;
   }
+
+  .stats-grid {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  }
+
+.stat-card {
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.10);
+  }
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+  }
+
+.venue-name {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 0.2px;
+  }
+
+.venue-count {
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #4B0082;
+  }
+
+.stat-bar {
+  width: 100%;
+  height: 8px;
+  background: #ececf3;
+  border-radius: 999px;
+  overflow: hidden;
+  }
+
+.stat-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7a6ff0 0%, #4B0082 100%);
+  }
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    }
+  }
 </style>
 
 
@@ -197,102 +259,65 @@ redirect_from:
 </div>
 
 
-### 📊Publication Statistics
+### 📊 Publication Statistics
 
 <span style="font-family:Arial; font-size:0.8em; text-align:justify;">
-  The chart below summarizes my publications by venue, including published and accepted papers listed on this homepage.
+A quick overview of my publications by venue, including accepted and published papers listed on this homepage.
 </span>
 
-<div class="card" style="margin-top: 12px;">
-  <div id="pub-chart" style="width: 100%; height: 420px;"></div>
+<div class="stats-grid">
+
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="venue-name">AAAI</span>
+      <span class="venue-count">2</span>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-fill" style="width: 100%;"></div>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="venue-name">ICLR</span>
+      <span class="venue-count">1</span>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-fill" style="width: 50%;"></div>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="venue-name">NeurIPS</span>
+      <span class="venue-count">1</span>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-fill" style="width: 50%;"></div>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="venue-name">ICML</span>
+      <span class="venue-count">1</span>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-fill" style="width: 50%;"></div>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-header">
+      <span class="venue-name">Inf. Sci.</span>
+      <span class="venue-count">1</span>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-fill" style="width: 50%;"></div>
+    </div>
+  </div>
+
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-<script>
-  var chartDom = document.getElementById('pub-chart');
-  var myChart = echarts.init(chartDom);
-
-  var option = {
-    title: {
-      text: 'Publications by Venue',
-      left: 'center',
-      top: 10,
-      textStyle: {
-        color: '#222',
-        fontSize: 20,
-        fontWeight: 'bold'
-      }
-    },
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: { type: 'shadow' },
-      backgroundColor: 'rgba(30,30,30,0.92)',
-      borderColor: '#6a5acd',
-      borderWidth: 1,
-      textStyle: { color: '#fff' }
-    },
-    grid: {
-      left: '8%',
-      right: '5%',
-      bottom: '12%',
-      top: '22%'
-    },
-    xAxis: {
-      type: 'category',
-      data: ['ICLR', 'NeurIPS', 'ICML', 'AAAI', 'Inf. Sci.'],
-      axisLine: { lineStyle: { color: '#888' } },
-      axisLabel: { color: '#333', fontSize: 13 },
-      axisTick: { show: false }
-    },
-    yAxis: {
-      type: 'value',
-      minInterval: 1,
-      axisLine: { show: false },
-      splitLine: {
-        lineStyle: {
-          type: 'dashed',
-          color: '#ddd'
-        }
-      },
-      axisLabel: { color: '#333' }
-    },
-    series: [{
-      name: 'Papers',
-      type: 'bar',
-      barWidth: '45%',
-      data: [1, 1, 1, 2, 1],
-      label: {
-        show: true,
-        position: 'top',
-        color: '#4B0082',
-        fontWeight: 'bold',
-        fontSize: 14
-      },
-      itemStyle: {
-        borderRadius: [10, 10, 0, 0],
-        shadowBlur: 12,
-        shadowColor: 'rgba(75,0,130,0.25)',
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          { offset: 0, color: '#7B68EE' },
-          { offset: 1, color: '#4B0082' }
-        ])
-      },
-      emphasis: {
-        itemStyle: {
-          shadowBlur: 18,
-          shadowColor: 'rgba(75,0,130,0.45)'
-        }
-      },
-      animationDuration: 1400,
-      animationEasing: 'elasticOut'
-    }]
-  };
-
-  myChart.setOption(option);
-  window.addEventListener('resize', function() {
-    myChart.resize();
-  });
-</script>
 
 
 ### 📝Publications
