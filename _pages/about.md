@@ -255,9 +255,6 @@ A brief overview of my publications by venue, including accepted and published p
     { value: 1, name: 'Inf. Sci.' }
   ];
 
-  const conferenceTotal = conferenceData.reduce((sum, item) => sum + item.value, 0);
-  const journalTotal = journalData.reduce((sum, item) => sum + item.value, 0);
-
   const mutedColorsConference = ['#6E6AA7', '#8B86C9', '#A7A3D8', '#C3C0E8'];
   const mutedColorsJournal = ['#7D84B2', '#A9B4C2', '#C7D3DD', '#DCE2EA'];
 
@@ -305,12 +302,12 @@ A brief overview of my publications by venue, including accepted and published p
       {
         type: 'text',
         left: 'center',
-        top: '58.5%',
+        top: '55.5%',
         style: {
-          text: String(conferenceTotal),
+          text: 'Conference',
           textAlign: 'center',
           fill: '#2f2f3a',
-          fontSize: 30,
+          fontSize: 18,
           fontWeight: 700,
           fontFamily: 'Arial, sans-serif'
         }
@@ -331,7 +328,7 @@ A brief overview of my publications by venue, including accepted and published p
         label: {
           show: true,
           position: 'outside',
-          formatter: '{c}',
+          formatter: '{b}: {c}',
           color: '#555',
           fontSize: 12,
           fontWeight: 600,
@@ -373,12 +370,12 @@ A brief overview of my publications by venue, including accepted and published p
       {
         type: 'text',
         left: 'center',
-        top: '58.5%',
+        top: '55.5%',
         style: {
-          text: String(journalTotal),
+          text: 'Journal',
           textAlign: 'center',
           fill: '#2f2f3a',
-          fontSize: 30,
+          fontSize: 18,
           fontWeight: 700,
           fontFamily: 'Arial, sans-serif'
         }
@@ -398,7 +395,7 @@ A brief overview of my publications by venue, including accepted and published p
         label: {
           show: true,
           position: 'outside',
-          formatter: '{c}',
+          formatter: '{b}: {c}',
           color: '#555',
           fontSize: 12,
           fontWeight: 600,
