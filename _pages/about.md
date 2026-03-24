@@ -100,7 +100,7 @@ redirect_from:
     background: #00308B;
     color: #fff;
     padding: 2.5px 6px;
-    font-size: 0.80em;
+    font-size: 0.8em;
     font-weight: bold;
     line-height: 1.0;
     border-radius: 4px;
@@ -545,7 +545,7 @@ A brief overview of my publications by venue, including accepted and published p
 
 <ul style="margin-top: 0.1em; margin-bottom: 0.1em; font-family:Arial; font-size:0.9em;">
   <li><strong>Conference Reviewer/Program Committee Member</strong></li>
-  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
+  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.8em;">
     <li>The International Conference on Machine Learning (ICML), 2026.</li>
     <li>The European Conference on Computer Vision (ECCV), 2026.</li>
     <li>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
@@ -554,7 +554,7 @@ A brief overview of my publications by venue, including accepted and published p
   </ul>
 
   <li><strong>Journal Reviewer</strong></li>
-  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
+  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.8em;">
     <li>International Journal of Machine Learning and Cybernetics (IJMLC).</li>
     <li>Transactions on Machine Learning Research (TMLR).</li>
     <li>Pattern Recognition (PR).</li>
@@ -566,7 +566,7 @@ A brief overview of my publications by venue, including accepted and published p
 
 <ul style="margin-top: 0.1em; margin-bottom: 0.1em; font-family:Arial; font-size:0.9em;">
   <li><strong>Scholarship</strong></li>
-  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
+  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.8em;">
     <li>National Scholarship (2025, The Chinese Ministry of Education).</li>
     <li>Master's Academic Scholarship (2020, The Henan Department of Education).</li>
     <li>National Encouragement Scholarship (2019, The Henan Department of Education).</li>
@@ -574,7 +574,7 @@ A brief overview of my publications by venue, including accepted and published p
   </ul>
 
   <li><strong>Honor</strong></li>
-  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
+  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.8em;">
     <li>Merit Graduate Student (2025, Southeast University).</li>
     <li>Outstanding Graduate Student (2023, Henan University).</li>
     <li>Outstanding Graduate (2020, The Henan Department of Education).</li>
