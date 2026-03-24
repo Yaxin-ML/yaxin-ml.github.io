@@ -241,8 +241,17 @@ A brief overview of my publications by venue, including accepted and published p
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <script>
-  const conferenceChart = echarts.init(document.getElementById('conference-chart'));
-  const journalChart = echarts.init(document.getElementById('journal-chart'));
+  const conferenceChart = echarts.init(
+    document.getElementById('conference-chart'),
+    null,
+    { renderer: 'svg' }
+  );
+
+  const journalChart = echarts.init(
+    document.getElementById('journal-chart'),
+    null,
+    { renderer: 'svg' }
+  );
 
   const conferenceData = [
     { value: 1, name: 'ICLR' },
