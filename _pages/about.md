@@ -285,17 +285,6 @@ A brief overview of my publications by venue, including accepted and published p
   };
 
   const conferenceOption = {
-    title: {
-      text: 'Conference Papers',
-      left: 'center',
-      top: 38,
-      textStyle: {
-        color: '#222',
-        fontSize: 17,
-        fontWeight: 'bold',
-        fontFamily: 'Arial, sans-serif'
-      }
-    },
     tooltip: commonTooltip,
     legend: commonLegend,
     graphic: [
@@ -353,17 +342,6 @@ A brief overview of my publications by venue, including accepted and published p
   };
 
   const journalOption = {
-    title: {
-      text: 'Journal Papers',
-      left: 'center',
-      top: 38,
-      textStyle: {
-        color: '#222',
-        fontSize: 17,
-        fontWeight: 'bold',
-        fontFamily: 'Arial, sans-serif'
-      }
-    },
     tooltip: commonTooltip,
     legend: commonLegend,
     graphic: [
