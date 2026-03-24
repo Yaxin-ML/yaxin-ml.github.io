@@ -159,64 +159,29 @@ redirect_from:
   display: none !important;
   }
 
-  .stats-grid {
-  margin-top: 1em;
+  .pie-chart-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 18px;
+  margin-top: 1em;
   }
 
-.stat-card {
+.pie-card {
   background: #fafafa;
   border: 1px solid #eeeeee;
-  border-radius: 12px;
-  padding: 14px 16px;
+  border-radius: 14px;
+  padding: 10px 12px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-.stat-card:hover {
+.pie-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 14px rgba(0,0,0,0.10);
-  }
-
-.stat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  font-family: Arial, sans-serif;
-  }
-
-.venue-name {
-  font-size: 0.95em;
-  font-weight: 600;
-  color: #222;
-  letter-spacing: 0.2px;
-  }
-
-.venue-count {
-  font-size: 0.95em;
-  font-weight: 700;
-  color: #4B0082;
-  }
-
-.stat-bar {
-  width: 100%;
-  height: 8px;
-  background: #ececf3;
-  border-radius: 999px;
-  overflow: hidden;
-  }
-
-.stat-fill {
-  height: 100%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #7a6ff0 0%, #4B0082 100%);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
   }
 
 @media (max-width: 768px) {
-  .stats-grid {
+  .pie-chart-grid {
     grid-template-columns: 1fr;
     }
   }
@@ -262,62 +227,181 @@ redirect_from:
 ### 📊 Publication Statistics
 
 <span style="font-family:Arial; font-size:0.8em; text-align:justify;">
-A quick overview of my publications by venue, including accepted and published papers listed on this homepage.
+A brief overview of my publications by venue, including accepted and published papers listed on this homepage.
 </span>
 
-<div class="stats-grid">
-
-  <div class="stat-card">
-    <div class="stat-header">
-      <span class="venue-name">AAAI</span>
-      <span class="venue-count">2</span>
-    </div>
-    <div class="stat-bar">
-      <div class="stat-fill" style="width: 100%;"></div>
-    </div>
+<div class="pie-chart-grid">
+  <div class="pie-card">
+    <div id="conference-chart" style="width: 100%; height: 340px;"></div>
   </div>
-
-  <div class="stat-card">
-    <div class="stat-header">
-      <span class="venue-name">ICLR</span>
-      <span class="venue-count">1</span>
-    </div>
-    <div class="stat-bar">
-      <div class="stat-fill" style="width: 50%;"></div>
-    </div>
+  <div class="pie-card">
+    <div id="journal-chart" style="width: 100%; height: 340px;"></div>
   </div>
-
-  <div class="stat-card">
-    <div class="stat-header">
-      <span class="venue-name">NeurIPS</span>
-      <span class="venue-count">1</span>
-    </div>
-    <div class="stat-bar">
-      <div class="stat-fill" style="width: 50%;"></div>
-    </div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-header">
-      <span class="venue-name">ICML</span>
-      <span class="venue-count">1</span>
-    </div>
-    <div class="stat-bar">
-      <div class="stat-fill" style="width: 50%;"></div>
-    </div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-header">
-      <span class="venue-name">Inf. Sci.</span>
-      <span class="venue-count">1</span>
-    </div>
-    <div class="stat-bar">
-      <div class="stat-fill" style="width: 50%;"></div>
-    </div>
-  </div>
-
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script>
+  const conferenceChart = echarts.init(document.getElementById('conference-chart'));
+  const journalChart = echarts.init(document.getElementById('journal-chart'));
+
+  const commonTextStyle = {
+    fontFamily: 'Arial, sans-serif',
+    color: '#333'
+  };
+
+  const conferenceOption = {
+    title: {
+      text: 'Conference Papers',
+      left: 'center',
+      top: 10,
+      textStyle: {
+        color: '#222',
+        fontSize: 18,
+        fontWeight: 'bold',
+        fontFamily: 'Arial, sans-serif'
+      }
+    },
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {c} ({d}%)',
+      backgroundColor: 'rgba(255,255,255,0.96)',
+      borderColor: '#ddd',
+      borderWidth: 1,
+      textStyle: {
+        color: '#222',
+        fontFamily: 'Arial, sans-serif'
+      }
+    },
+    legend: {
+      orient: 'vertical',
+      left: 'left',
+      top: 'middle',
+      textStyle: {
+        color: '#444',
+        fontSize: 13,
+        fontFamily: 'Arial, sans-serif'
+      },
+      itemWidth: 12,
+      itemHeight: 12
+    },
+    series: [
+      {
+        name: 'Conference Papers',
+        type: 'pie',
+        radius: ['42%', '68%'],
+        center: ['62%', '56%'],
+        avoidLabelOverlap: true,
+        itemStyle: {
+          borderColor: '#ffffff',
+          borderWidth: 2,
+          borderRadius: 6
+        },
+        label: {
+          show: true,
+          formatter: '{c}',
+          fontSize: 13,
+          fontWeight: 'bold',
+          color: '#333',
+          fontFamily: 'Arial, sans-serif'
+        },
+        labelLine: {
+          length: 10,
+          length2: 8
+        },
+        emphasis: {
+          scale: true,
+          scaleSize: 6
+        },
+        data: [
+          { value: 1, name: 'ICLR' },
+          { value: 1, name: 'NeurIPS' },
+          { value: 1, name: 'ICML' },
+          { value: 2, name: 'AAAI' }
+        ],
+        color: ['#4B0082', '#6A5ACD', '#7B68EE', '#9A8CFF']
+      }
+    ]
+  };
+
+  const journalOption = {
+    title: {
+      text: 'Journal Papers',
+      left: 'center',
+      top: 10,
+      textStyle: {
+        color: '#222',
+        fontSize: 18,
+        fontWeight: 'bold',
+        fontFamily: 'Arial, sans-serif'
+      }
+    },
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {c} ({d}%)',
+      backgroundColor: 'rgba(255,255,255,0.96)',
+      borderColor: '#ddd',
+      borderWidth: 1,
+      textStyle: {
+        color: '#222',
+        fontFamily: 'Arial, sans-serif'
+      }
+    },
+    legend: {
+      orient: 'vertical',
+      left: 'left',
+      top: 'middle',
+      textStyle: {
+        color: '#444',
+        fontSize: 13,
+        fontFamily: 'Arial, sans-serif'
+      },
+      itemWidth: 12,
+      itemHeight: 12
+    },
+    series: [
+      {
+        name: 'Journal Papers',
+        type: 'pie',
+        radius: ['42%', '68%'],
+        center: ['62%', '56%'],
+        avoidLabelOverlap: true,
+        itemStyle: {
+          borderColor: '#ffffff',
+          borderWidth: 2,
+          borderRadius: 6
+        },
+        label: {
+          show: true,
+          formatter: '{c}',
+          fontSize: 13,
+          fontWeight: 'bold',
+          color: '#333',
+          fontFamily: 'Arial, sans-serif'
+        },
+        labelLine: {
+          length: 10,
+          length2: 8
+        },
+        emphasis: {
+          scale: true,
+          scaleSize: 6
+        },
+        data: [
+          { value: 1, name: 'Inf. Sci.' }
+        ],
+        color: ['#7A6FF0']
+      }
+    ]
+  };
+
+  conferenceChart.setOption(conferenceOption);
+  journalChart.setOption(journalOption);
+
+  window.addEventListener('resize', function () {
+    conferenceChart.resize();
+    journalChart.resize();
+  });
+</script>
 
 
 ### 📝Publications
