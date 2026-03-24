@@ -166,7 +166,7 @@ redirect_from:
   margin-top: 1em;
   }
 
-.pie-card {
+ .pie-card {
   background: #fafafa;
   border: 1px solid #eeeeee;
   border-radius: 14px;
@@ -175,13 +175,13 @@ redirect_from:
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-.pie-card:hover {
+  .pie-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.10);
   }
 
-@media (max-width: 768px) {
-  .pie-chart-grid {
+  @media (max-width: 768px) {
+    .pie-chart-grid {
     grid-template-columns: 1fr;
     }
   }
