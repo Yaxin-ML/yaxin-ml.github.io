@@ -170,7 +170,7 @@ redirect_from:
   background: #fafafa;
   border: 1px solid #eeeeee;
   border-radius: 14px;
-  padding: 10px 12px;
+  padding: 12px 14px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -232,10 +232,10 @@ A brief overview of my publications by venue, including accepted and published p
 
 <div class="pie-chart-grid">
   <div class="pie-card">
-    <div id="conference-chart" style="width: 100%; height: 340px;"></div>
+    <div id="conference-chart" style="width: 100%; height: 360px;"></div>
   </div>
   <div class="pie-card">
-    <div id="journal-chart" style="width: 100%; height: 340px;"></div>
+    <div id="journal-chart" style="width: 100%; height: 360px;"></div>
   </div>
 </div>
 
@@ -261,66 +261,57 @@ A brief overview of my publications by venue, including accepted and published p
   const mutedColorsConference = ['#6E6AA7', '#8B86C9', '#A7A3D8', '#C3C0E8'];
   const mutedColorsJournal = ['#7D84B2', '#A9B4C2', '#C7D3DD', '#DCE2EA'];
 
+  const commonLegend = {
+    top: 8,
+    left: 'center',
+    orient: 'horizontal',
+    itemWidth: 12,
+    itemHeight: 12,
+    icon: 'circle',
+    textStyle: {
+      color: '#444',
+      fontSize: 12,
+      fontFamily: 'Arial, sans-serif'
+    }
+  };
+
+  const commonTooltip = {
+    trigger: 'item',
+    formatter: '{b}: {c} ({d}%)',
+    backgroundColor: 'rgba(255,255,255,0.97)',
+    borderColor: '#e5e5e5',
+    borderWidth: 1,
+    textStyle: {
+      color: '#222',
+      fontFamily: 'Arial, sans-serif'
+    }
+  };
+
   const conferenceOption = {
     title: {
       text: 'Conference Papers',
       left: 'center',
-      top: 10,
+      top: 38,
       textStyle: {
         color: '#222',
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: 'bold',
         fontFamily: 'Arial, sans-serif'
       }
     },
-    tooltip: {
-      trigger: 'item',
-      formatter: '{b}: {c} ({d}%)',
-      backgroundColor: 'rgba(255,255,255,0.97)',
-      borderColor: '#e5e5e5',
-      borderWidth: 1,
-      textStyle: {
-        color: '#222',
-        fontFamily: 'Arial, sans-serif'
-      }
-    },
-    legend: {
-      orient: 'vertical',
-      left: '8%',
-      top: 'middle',
-      textStyle: {
-        color: '#444',
-        fontSize: 13,
-        fontFamily: 'Arial, sans-serif'
-      },
-      itemWidth: 12,
-      itemHeight: 12,
-      icon: 'circle'
-    },
+    tooltip: commonTooltip,
+    legend: commonLegend,
     graphic: [
       {
         type: 'text',
-        left: '62%',
-        top: '47%',
+        left: 'center',
+        top: '58.5%',
         style: {
           text: String(conferenceTotal),
           textAlign: 'center',
           fill: '#2f2f3a',
-          fontSize: 28,
+          fontSize: 30,
           fontWeight: 700,
-          fontFamily: 'Arial, sans-serif'
-        }
-      },
-      {
-        type: 'text',
-        left: '59.8%',
-        top: '57%',
-        style: {
-          text: 'Total',
-          textAlign: 'center',
-          fill: '#7a7a88',
-          fontSize: 12,
-          fontWeight: 500,
           fontFamily: 'Arial, sans-serif'
         }
       }
@@ -329,18 +320,30 @@ A brief overview of my publications by venue, including accepted and published p
       {
         name: 'Conference Papers',
         type: 'pie',
-        radius: ['48%', '68%'],
-        center: ['65%', '56%'],
+        radius: ['46%', '66%'],
+        center: ['50%', '62%'],
         avoidLabelOverlap: true,
+        minShowLabelAngle: 8,
         itemStyle: {
           borderColor: '#fafafa',
           borderWidth: 3
         },
         label: {
-          show: false
+          show: true,
+          position: 'outside',
+          formatter: '{c}',
+          color: '#555',
+          fontSize: 12,
+          fontWeight: 600,
+          fontFamily: 'Arial, sans-serif'
         },
         labelLine: {
-          show: false
+          show: true,
+          length: 8,
+          length2: 6,
+          lineStyle: {
+            color: '#b8b8c6'
+          }
         },
         emphasis: {
           scale: true,
@@ -356,62 +359,27 @@ A brief overview of my publications by venue, including accepted and published p
     title: {
       text: 'Journal Papers',
       left: 'center',
-      top: 10,
+      top: 38,
       textStyle: {
         color: '#222',
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: 'bold',
         fontFamily: 'Arial, sans-serif'
       }
     },
-    tooltip: {
-      trigger: 'item',
-      formatter: '{b}: {c} ({d}%)',
-      backgroundColor: 'rgba(255,255,255,0.97)',
-      borderColor: '#e5e5e5',
-      borderWidth: 1,
-      textStyle: {
-        color: '#222',
-        fontFamily: 'Arial, sans-serif'
-      }
-    },
-    legend: {
-      orient: 'vertical',
-      left: '8%',
-      top: 'middle',
-      textStyle: {
-        color: '#444',
-        fontSize: 13,
-        fontFamily: 'Arial, sans-serif'
-      },
-      itemWidth: 12,
-      itemHeight: 12,
-      icon: 'circle'
-    },
+    tooltip: commonTooltip,
+    legend: commonLegend,
     graphic: [
       {
         type: 'text',
-        left: '62%',
-        top: '47%',
+        left: 'center',
+        top: '58.5%',
         style: {
           text: String(journalTotal),
           textAlign: 'center',
           fill: '#2f2f3a',
-          fontSize: 28,
+          fontSize: 30,
           fontWeight: 700,
-          fontFamily: 'Arial, sans-serif'
-        }
-      },
-      {
-        type: 'text',
-        left: '59.8%',
-        top: '57%',
-        style: {
-          text: 'Total',
-          textAlign: 'center',
-          fill: '#7a7a88',
-          fontSize: 12,
-          fontWeight: 500,
           fontFamily: 'Arial, sans-serif'
         }
       }
@@ -420,18 +388,29 @@ A brief overview of my publications by venue, including accepted and published p
       {
         name: 'Journal Papers',
         type: 'pie',
-        radius: ['48%', '68%'],
-        center: ['65%', '56%'],
+        radius: ['46%', '66%'],
+        center: ['50%', '62%'],
         avoidLabelOverlap: true,
         itemStyle: {
           borderColor: '#fafafa',
           borderWidth: 3
         },
         label: {
-          show: false
+          show: true,
+          position: 'outside',
+          formatter: '{c}',
+          color: '#555',
+          fontSize: 12,
+          fontWeight: 600,
+          fontFamily: 'Arial, sans-serif'
         },
         labelLine: {
-          show: false
+          show: true,
+          length: 8,
+          length2: 6,
+          lineStyle: {
+            color: '#b8b8c6'
+          }
         },
         emphasis: {
           scale: true,
