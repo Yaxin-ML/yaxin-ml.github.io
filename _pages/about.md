@@ -549,7 +549,7 @@ A brief overview of my publications by venue, including accepted and published p
     <li>The International Conference on Machine Learning (ICML), 2026.</li>
     <li>The European Conference on Computer Vision (ECCV), 2026.</li>
     <li>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
-    <li>The Annual Conference on Neural Information Processing Systems (NeurIPS), 2025.</li>
+    <li>The Annual Conference on Neural Information Processing Systems (NeurIPS), 2025-2026.</li>
     <li>The IEEE International Symposium on Machine Learning and Media Computing (MLMC), 2025-2026.</li>
   </ul>
 
