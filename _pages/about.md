@@ -2,204 +2,274 @@
 permalink: /
 title: ""
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
 <style>
+  :root {
+    --bg: #f6f7fb;
+    --surface: rgba(255,255,255,0.82);
+    --surface-strong: #ffffff;
+    --surface-soft: #f8f9ff;
+    --text: #1f2430;
+    --muted: #5f6677;
+    --line: rgba(107, 114, 128, 0.16);
+    --primary: #5b5bd6;
+    --primary-deep: #4038b8;
+    --accent: #8b5cf6;
+    --accent-soft: #efe9ff;
+    --shadow: 0 12px 30px rgba(31, 36, 48, 0.08);
+    --shadow-hover: 0 18px 36px rgba(31, 36, 48, 0.12);
+    --radius-xl: 24px;
+    --radius-lg: 18px;
+    --radius-md: 14px;
+    --max-width: 1120px;
+  }
+
   body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #ffffff;
-    color: #222;
-    line-height: 1.6em;
+    font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(139, 92, 246, 0.10), transparent 28%),
+      radial-gradient(circle at top right, rgba(91, 91, 214, 0.10), transparent 22%),
+      linear-gradient(180deg, #fbfbfe 0%, #f5f7fb 100%);
+    line-height: 1.78;
+    letter-spacing: 0.01em;
+  }
+
+  .page__content {
+    max-width: var(--max-width);
+  }
+
+  p, li, span {
+    color: var(--text);
+  }
+
+  a {
+    color: var(--primary-deep);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--accent);
   }
 
   h3 {
-    color: #000000;
+    position: relative;
+    margin: 3.2rem 0 1.2rem;
+    padding-left: 0.9rem;
+    font-size: 1.28rem;
     font-weight: 800;
-    margin-top: 2.3em;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.02em;
+    color: #141927;
+  }
+
+  h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    width: 4px;
+    height: 1.15em;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
   }
 
   hr {
-    clear: both;
-    border: none;
-    border-top: 2px dashed #c5c5c5;
-    margin: 3em 0;
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(91, 91, 214, 0.25), transparent);
+    margin: 3.2rem 0;
   }
 
-  .card {
-    border-radius: 12px;
-    padding: 18px 22px;
-    background: #fafafa;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  .hero-card,
+  .glass-card,
+  .news-box,
+  .pie-card,
+  .publication-container,
+  .service-card,
+  .award-card,
+  .contact-card,
+  .map-shell {
+    background: var(--surface);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.65);
+    box-shadow: var(--shadow);
   }
 
-  .profile-text {
-    font-size: 0.95em;
-    text-align: justify;
-    line-height: 1.65em;
-    display: block;
-    margin-top: 8px;
-  }
-
-  .news-box {
-    max-height: 300px;
-    overflow-y: auto;
-    border-left: 4px solid #f0eaff;
-    padding: 16px 20px;
-    border-radius: 12px;
-    background: #f9f9fc;
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
-  }
-
-  .news-item {
-    padding: 3px 12px;
-    margin-bottom: 2px;
-    border-radius: 8px;
-    transition: background 0.25s;
-  }
-
-  .news-item:hover {
-    background: #f0eaff;
-  }
-
-  .publication-container {
-    display: flex;
-    gap: 18px;
-    margin-bottom: 2.3em;
-    font-size: 0.8em;
-    padding: 12px;
-    background: #fafafa;
-    border-radius: 12px;
-    transition: 0.25s ease;
-    align-items: flex-start;
-    border: 1px solid #eee;
-    clear: both;
-  }
-
-  .publication-container:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-  }
-
-  .publication-container img {
-    max-width: 240px;
-    max-height: 150px;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
-    flex-shrink: 0;
-  }
-
-  .paper-badge {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    background: #00308B;
-    color: #fff;
-    padding: 2.5px 6px;
-    font-size: 0.8em;
-    font-weight: bold;
-    line-height: 1.0;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  }
-
-  .pub-img-wrapper {
+  .hero-card {
     position: relative;
-    display: inline-block;
-  }
-
-  ul {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    line-height: 1.5em;
-  }
-
-  li {
-    margin-bottom: 4px;
-  }
-
-  .map-container {
-    display: flex; 
-    justify-content: center; 
-    margin: 25px 0;
-  }
-
-  .map-box {
-    width: 100%; 
-    max-width: 320px; 
-    text-align: center;
-    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    border-radius: 28px;
+    padding: 28px 30px;
+    margin-top: 0.4rem;
+  }
+
+  .hero-card::after {
+    content: "";
+    position: absolute;
+    inset: auto -60px -60px auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-topline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-deep);
+    background: var(--accent-soft);
+    border: 1px solid rgba(91, 91, 214, 0.10);
   }
 
   .profile-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1.75fr) minmax(180px, 0.8fr);
+    gap: 28px;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
   }
 
   .profile-content {
-    flex: 3;
-    width: 75%;
+    min-width: 0;
+  }
+
+  .profile-text {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--muted);
+    margin: 0;
+    text-align: justify;
+  }
+
+  .profile-highlight {
+    color: var(--primary-deep);
+    font-weight: 700;
   }
 
   .profile-logos {
-    flex: 1;
-    display: grid; 
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    align-items: center; 
+    display: grid;
+    grid-template-columns: repeat(2, minmax(72px, 1fr));
+    gap: 12px;
+    align-items: center;
     justify-items: center;
   }
 
   .profile-logos a:nth-child(1) {
     grid-column: 1 / -1;
-    margin-bottom: 1px;
+  }
+
+  .logo-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 92px;
+    padding: 10px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(91, 91, 214, 0.08);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .logo-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(91, 91, 214, 0.12);
   }
 
   .profile-logos img {
-    max-width: 75px;
-    max-height: 75px;
-    width: auto;
+    max-width: 82px;
+    max-height: 82px;
     object-fit: contain;
-    transition: transform 0.2s;
     display: block;
     box-shadow: none;
   }
 
-  .profile-logos img:hover {
-    transform: scale(1.1);
+  .section-intro {
+    margin: -0.25rem 0 1.1rem;
+    font-size: 0.96rem;
+    color: var(--muted);
   }
 
-  .greedy-nav button {
-    display: none !important;
+  .news-box {
+    border-radius: var(--radius-xl);
+    padding: 16px;
+    max-height: 360px;
+    overflow-y: auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(248,249,255,0.92));
+  }
+
+  .news-box::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .news-box::-webkit-scrollbar-thumb {
+    background: rgba(91, 91, 214, 0.22);
+    border-radius: 999px;
+  }
+
+  .news-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 14px 14px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(91, 91, 214, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .news-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(31, 36, 48, 0.08);
+    background: #ffffff;
+  }
+
+  .news-emoji {
+    font-size: 1.15rem;
+    line-height: 1.2;
+    margin-top: 1px;
+  }
+
+  .news-date {
+    display: inline-block;
+    min-width: 78px;
+    margin-right: 8px;
+    color: var(--primary-deep);
+    font-weight: 800;
+  }
+
+  .inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+    font-weight: 700;
   }
 
   .pie-chart-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    margin-top: 1em;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 1.2rem;
   }
 
   .pie-card {
-    background: #fafafa;
-    border: 1px solid #eeeeee;
-    border-radius: 14px;
-    padding: 12px 14px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .pie-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+    border-radius: 22px;
+    padding: 16px 16px 8px;
   }
 
   .stats-chart {
@@ -207,108 +277,314 @@ redirect_from:
     height: 360px;
   }
 
-  @media (max-width: 1024px) {
-    .stats-chart {
-      height: 320px;
+  .list-title {
+    margin: 0.2rem 0 0.8rem;
+    padding-left: 0;
+    list-style: none;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #171b28;
+  }
+
+  .publication-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .publication-container {
+    display: grid;
+    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+    padding: 18px;
+    border-radius: 22px;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .publication-container:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .pub-img-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .publication-container img {
+    width: 100%;
+    max-width: 240px;
+    max-height: 150px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+  }
+
+  .paper-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #223a9a, #4f46e5);
+    color: #fff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(34, 58, 154, 0.24);
+  }
+
+  .pub-meta {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--primary-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .pub-title {
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.65;
+    color: #161b27;
+  }
+
+  .pub-authors {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.96rem;
+  }
+
+  .pub-authors strong {
+    color: var(--primary-deep);
+  }
+
+  .service-grid,
+  .award-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .service-card,
+  .award-card,
+  .contact-card,
+  .map-shell {
+    border-radius: 22px;
+    padding: 20px 22px;
+  }
+
+  .card-title {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #171b28;
+  }
+
+  .clean-list,
+  .nested-list {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .clean-list li,
+  .nested-list li {
+    margin-bottom: 0.55rem;
+    color: var(--muted);
+  }
+
+  .contact-card {
+    padding-bottom: 10px;
+  }
+
+  .contact-line {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.97rem;
+  }
+
+  .map-shell {
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  .map-box {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .greedy-nav button {
+    display: none !important;
+  }
+
+  @media (max-width: 960px) {
+    .profile-wrapper,
+    .service-grid,
+    .award-grid,
+    .pie-chart-grid,
+    .publication-container {
+      grid-template-columns: 1fr;
+    }
+
+    .publication-container img {
+      max-width: 100%;
+      max-height: none;
+    }
+
+    .profile-logos {
+      grid-template-columns: repeat(3, minmax(72px, 1fr));
+    }
+
+    .profile-logos a:nth-child(1) {
+      grid-column: auto;
     }
   }
 
   @media (max-width: 768px) {
-    .pie-chart-grid {
-      grid-template-columns: 1fr;
+    .hero-card,
+    .news-box,
+    .pie-card,
+    .publication-container,
+    .service-card,
+    .award-card,
+    .contact-card,
+    .map-shell {
+      border-radius: 18px;
+    }
+
+    .hero-card {
+      padding: 22px 18px;
     }
 
     .stats-chart {
       height: 300px;
     }
 
-    .profile-wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .profile-content {
-      width: 100%;
-    }
-
-    .profile-logos {
-      width: 100%;
-      justify-items: start;
-      grid-template-columns: repeat(3, auto);
-      gap: 10px;
-    }
-
-    .profile-logos a:nth-child(1) {
-      grid-column: auto;
-      margin-bottom: 0;
-    }
-
-    .publication-container {
-      flex-direction: column;
-    }
-
-    .publication-container img {
-      max-width: 100%;
-      height: auto;
+    .profile-text,
+    .section-intro,
+    .pub-authors,
+    .contact-line,
+    .clean-list li,
+    .nested-list li {
+      text-align: left;
     }
   }
 
   @media (max-width: 480px) {
+    h3 {
+      font-size: 1.12rem;
+    }
+
+    .hero-topline {
+      font-size: 0.76rem;
+    }
+
+    .news-item {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
     .stats-chart {
       height: 260px;
     }
   }
 </style>
 
+### 👨‍🎓 Profile
 
-### 👨‍🎓Profile
+<div class="hero-card">
+  <div class="hero-topline">Academic Homepage · Machine Learning · Long-Tailed Learning</div>
 
-<div class="profile-wrapper">
-  <div class="profile-content">
-    <span style="font-family:Arial; font-size:0.8em; text-align:justify;">
-      I am currently a Ph.D. student at Southeast University, under the supervision of 
-      <a href="https://jyh-learning.github.io" style="color:#4B0082;"><strong>Assoc. Prof. Yuheng Jia</strong></a>. 
-      I received my M.S. degree from Henan University in 2023, under the supervision of 
-      <a href="https://cs.henu.edu.cn/info/1273/5566.htm" style="color:#4B0082;"><strong>Prof. Chongsheng Zhang</strong></a>. 
-      Before that, I obtained my B.S. degree in 2020 from Henan Institute of Engineering. 
-      My research interests lie in machine learning, with a focus on long-tailed learning and weakly supervised learning.
-    </span>
-  </div>
+  <div class="profile-wrapper">
+    <div class="profile-content">
+      <p class="profile-text">
+        I am currently a <span class="profile-highlight">Ph.D. student at Southeast University</span>, under the supervision of
+        <a href="https://jyh-learning.github.io"><strong>Assoc. Prof. Yuheng Jia</strong></a>.
+        I received my M.S. degree from Henan University in 2023, under the supervision of
+        <a href="https://cs.henu.edu.cn/info/1273/5566.htm"><strong>Prof. Chongsheng Zhang</strong></a>.
+        Before that, I obtained my B.S. degree in 2020 from Henan Institute of Engineering.
+        My research interests lie in <span class="profile-highlight">machine learning</span>, with a particular focus on
+        <span class="profile-highlight">long-tailed learning</span> and <span class="profile-highlight">weakly supervised learning</span>.
+      </p>
+    </div>
 
-  <div class="profile-logos">
-    <a href="https://www.seu.edu.cn" target="_blank">
-      <img src="./images/SEU.svg" alt="Southeast University" title="Southeast University">
-    </a>
-
-    <a href="https://cse.seu.edu.cn" target="_blank">
-      <img src="./images/CS.png" alt="School of Computer Science and Engineering" title="School of Computer Science and Engineering">
-    </a>
-
-    <a href="https://www.palmlab.cn" target="_blank">
-      <img src="./images/PALM.png" alt="Pattern Learning and Mining Lab" title="Pattern Learning and Mining Lab">
-    </a>
+    <div class="profile-logos">
+      <a class="logo-tile" href="https://www.seu.edu.cn" target="_blank">
+        <img src="./images/SEU.svg" alt="Southeast University" title="Southeast University">
+      </a>
+      <a class="logo-tile" href="https://cse.seu.edu.cn" target="_blank">
+        <img src="./images/CS.png" alt="School of Computer Science and Engineering" title="School of Computer Science and Engineering">
+      </a>
+      <a class="logo-tile" href="https://www.palmlab.cn" target="_blank">
+        <img src="./images/PALM.png" alt="Pattern Learning and Mining Lab" title="Pattern Learning and Mining Lab">
+      </a>
+    </div>
   </div>
 </div>
 
+### 🔥 News
 
-### 🔥News
+<div class="section-intro">Recent highlights, awards, and paper acceptances.</div>
 
 <div class="news-box">
-  <span style="font-family:Arial; font-size:0.8em;">
-    <div class="news-item">🎉 <span style="color:#4B0082;"><strong>[2026.01]</strong></span> Our work "Samples Are Not Equal: A Sample Selection Approach for Deep Clustering" is accepted by ICLR 2026! <a href="https://iclr.cc/virtual/2026/poster/10009380" style="color:#00308B;">Paper</a> <a href="https://github.com/notoaudrey/Samples-Are-Not-Equal">Codes</a><br></div>
-    <div class="news-item">🎉 <span style="color:#4B0082;"><strong>[2025.11]</strong></span> Our work "DiCaP: Distribution-Calibrated Pseudo-labeling for Semi-Supervised Multi-Label Learning" is accepted by AAAI 2026! <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39302" style="color:#00308B;">Paper</a> <a href="https://github.com/hb-studying/DiCaP">Codes</a><br></div>
-    <div class="news-item">🎉 <span style="color:#4B0082;"><strong>[2025.10]</strong></span> Win National Scholarship for Ph.D. Student!<br></div>
-    <div class="news-item">🎉 <span style="color:#4B0082;"><strong>[2025.09]</strong></span> Our work "Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning" is accepted by NeurIPS 2025! <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116160" style="color:#00308B;">Paper</a> <a href="https://github.com/YaxinHou/CPG">Codes</a><br></div>
-    <div class="news-item">🎉 <span style="color:#4B0082;"><strong>[2025.05]</strong></span> Our work "A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning" is accepted by ICML 2025! <a href="https://icml.cc/virtual/2025/poster/44441" style="color:#00308B;">Paper</a> <a href="https://github.com/YaxinHou/Meta-Expert">Codes</a><br></div>
-  </span>
-</div>
+  <div class="news-item">
+    <div class="news-emoji">🎉</div>
+    <div>
+      <span class="news-date">[2026.01]</span>
+      Our work <strong>“Samples Are Not Equal: A Sample Selection Approach for Deep Clustering”</strong> is accepted by <strong>ICLR 2026</strong>!
+      <a class="inline-link" href="https://iclr.cc/virtual/2026/poster/10009380">Paper</a>
+      <a class="inline-link" href="https://github.com/notoaudrey/Samples-Are-Not-Equal">Code</a>
+    </div>
+  </div>
 
+  <div class="news-item">
+    <div class="news-emoji">🎉</div>
+    <div>
+      <span class="news-date">[2025.11]</span>
+      Our work <strong>“DiCaP: Distribution-Calibrated Pseudo-labeling for Semi-Supervised Multi-Label Learning”</strong> is accepted by <strong>AAAI 2026</strong>!
+      <a class="inline-link" href="https://ojs.aaai.org/index.php/AAAI/article/view/39302">Paper</a>
+      <a class="inline-link" href="https://github.com/hb-studying/DiCaP">Code</a>
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-emoji">🏆</div>
+    <div>
+      <span class="news-date">[2025.10]</span>
+      Won the <strong>National Scholarship for Ph.D. Students</strong>.
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-emoji">🎉</div>
+    <div>
+      <span class="news-date">[2025.09]</span>
+      Our work <strong>“Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning”</strong> is accepted by <strong>NeurIPS 2025</strong>!
+      <a class="inline-link" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116160">Paper</a>
+      <a class="inline-link" href="https://github.com/YaxinHou/CPG">Code</a>
+    </div>
+  </div>
+
+  <div class="news-item" style="margin-bottom:0;">
+    <div class="news-emoji">🎉</div>
+    <div>
+      <span class="news-date">[2025.05]</span>
+      Our work <strong>“A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning”</strong> is accepted by <strong>ICML 2025</strong>!
+      <a class="inline-link" href="https://icml.cc/virtual/2025/poster/44441">Paper</a>
+      <a class="inline-link" href="https://github.com/YaxinHou/Meta-Expert">Code</a>
+    </div>
+  </div>
+</div>
 
 ### 📊 Publication Statistics
 
-<span style="font-family:Arial; font-size:0.8em; text-align:justify;">
-A brief overview of my publications by venue, including accepted and published papers listed on this homepage.
-</span>
+<div class="section-intro">
+  A concise overview of publications by venue, including accepted and published papers listed on this homepage.
+</div>
 
 <div class="pie-chart-grid">
   <div class="pie-card">
@@ -321,17 +597,8 @@ A brief overview of my publications by venue, including accepted and published p
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <script>
-  const conferenceChart = echarts.init(
-    document.getElementById('conference-chart'),
-    null,
-    { renderer: 'svg' }
-  );
-
-  const journalChart = echarts.init(
-    document.getElementById('journal-chart'),
-    null,
-    { renderer: 'svg' }
-  );
+  const conferenceChart = echarts.init(document.getElementById('conference-chart'), null, { renderer: 'svg' });
+  const journalChart = echarts.init(document.getElementById('journal-chart'), null, { renderer: 'svg' });
 
   const conferenceData = [
     { value: 1, name: 'ICLR' },
@@ -347,52 +614,50 @@ A brief overview of my publications by venue, including accepted and published p
   const conferenceTotal = conferenceData.reduce((sum, item) => sum + item.value, 0);
   const journalTotal = journalData.reduce((sum, item) => sum + item.value, 0);
 
-  const mutedColorsConference = ['#6E6AA7', '#8B86C9', '#A7A3D8', '#C3C0E8'];
-  const mutedColorsJournal = ['#7D84B2', '#A9B4C2', '#C7D3DD', '#DCE2EA'];
+  const mutedColorsConference = ['#5B5BD6', '#7C73F2', '#A08CFF', '#CDC4FF'];
+  const mutedColorsJournal = ['#6E7BC7', '#A9B6E8', '#CAD4F6', '#E3E9FF'];
 
   function buildPieOption(titleText, total, data, colors) {
     const isMobile = window.innerWidth <= 768;
-    const isTinyScreen = window.innerWidth <= 480;
+    const isTiny = window.innerWidth <= 480;
 
     return {
       tooltip: {
         trigger: 'item',
         formatter: '{b}: {c} ({d}%)',
-        backgroundColor: 'rgba(255,255,255,0.97)',
-        borderColor: '#e5e5e5',
+        backgroundColor: 'rgba(255,255,255,0.98)',
+        borderColor: '#ececf4',
         borderWidth: 1,
         textStyle: {
-          color: '#222',
-          fontFamily: 'Arial, sans-serif'
+          color: '#1f2430',
+          fontFamily: 'Inter, Arial, sans-serif'
         }
       },
-
       legend: {
         top: 10,
         left: 'center',
         orient: 'horizontal',
+        icon: 'circle',
         itemWidth: isMobile ? 10 : 12,
         itemHeight: isMobile ? 10 : 12,
-        icon: 'circle',
         textStyle: {
-          color: '#444',
-          fontSize: isTinyScreen ? 10 : (isMobile ? 11 : 12),
-          fontFamily: 'Arial, sans-serif'
+          color: '#5f6677',
+          fontSize: isTiny ? 10 : (isMobile ? 11 : 12),
+          fontFamily: 'Inter, Arial, sans-serif'
         }
       },
-
       graphic: [
         {
           type: 'text',
           left: 'center',
-          top: isMobile ? '47%' : '50%',
+          top: isMobile ? '46.5%' : '50%',
           style: {
             text: titleText,
             textAlign: 'center',
-            fill: '#6b6b78',
-            fontSize: isTinyScreen ? 11 : (isMobile ? 12 : 14),
-            fontWeight: 600,
-            fontFamily: 'Arial, sans-serif'
+            fill: '#6a7285',
+            fontSize: isTiny ? 11 : (isMobile ? 12 : 14),
+            fontWeight: 700,
+            fontFamily: 'Inter, Arial, sans-serif'
           }
         },
         {
@@ -402,65 +667,55 @@ A brief overview of my publications by venue, including accepted and published p
           style: {
             text: String(total),
             textAlign: 'center',
-            fill: '#2f2f3a',
-            fontSize: isTinyScreen ? 18 : (isMobile ? 20 : 24),
-            fontWeight: 700,
-            fontFamily: 'Arial, sans-serif'
+            fill: '#1f2430',
+            fontSize: isTiny ? 18 : (isMobile ? 20 : 26),
+            fontWeight: 800,
+            fontFamily: 'Inter, Arial, sans-serif'
           }
         }
       ],
-
       series: [
         {
-          name: titleText + ' Papers',
           type: 'pie',
-          radius: isTinyScreen ? ['38%', '54%'] : (isMobile ? ['42%', '60%'] : ['48%', '67%']),
-          center: isTinyScreen ? ['50%', '62%'] : (isMobile ? ['50%', '60%'] : ['50%', '58%']),
+          radius: isTiny ? ['38%', '56%'] : (isMobile ? ['42%', '60%'] : ['48%', '67%']),
+          center: isTiny ? ['50%', '62%'] : (isMobile ? ['50%', '60%'] : ['50%', '58%']),
           avoidLabelOverlap: true,
           minShowLabelAngle: 10,
           itemStyle: {
-            borderColor: '#fafafa',
+            borderColor: '#ffffff',
             borderWidth: 3
           },
           label: {
             show: true,
             position: 'outside',
             formatter: isMobile ? '{b}\n{c}' : '{b}: {c}',
-            color: '#555',
-            fontSize: isTinyScreen ? 9 : (isMobile ? 10 : 12),
-            fontWeight: 600,
-            fontFamily: 'Arial, sans-serif'
+            color: '#4f5668',
+            fontSize: isTiny ? 9 : (isMobile ? 10 : 12),
+            fontWeight: 700,
+            fontFamily: 'Inter, Arial, sans-serif'
           },
           labelLine: {
             show: true,
-            length: isTinyScreen ? 4 : (isMobile ? 6 : 8),
-            length2: isTinyScreen ? 3 : (isMobile ? 4 : 6),
+            length: isTiny ? 4 : (isMobile ? 6 : 8),
+            length2: isTiny ? 3 : (isMobile ? 4 : 6),
             lineStyle: {
-              color: '#b8b8c6'
+              color: '#c4c9d9'
             }
           },
           emphasis: {
             scale: true,
-            scaleSize: 4
+            scaleSize: 5
           },
-          data: data,
-          color: colors
+          color: colors,
+          data: data
         }
       ]
     };
   }
 
   function renderCharts() {
-    conferenceChart.setOption(
-      buildPieOption('Conference', conferenceTotal, conferenceData, mutedColorsConference),
-      true
-    );
-
-    journalChart.setOption(
-      buildPieOption('Journal', journalTotal, journalData, mutedColorsJournal),
-      true
-    );
-
+    conferenceChart.setOption(buildPieOption('Conference', conferenceTotal, conferenceData, mutedColorsConference), true);
+    journalChart.setOption(buildPieOption('Journal', journalTotal, journalData, mutedColorsJournal), true);
     conferenceChart.resize();
     journalChart.resize();
   }
@@ -470,128 +725,128 @@ A brief overview of my publications by venue, including accepted and published p
   let resizeTimer = null;
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      renderCharts();
-    }, 150);
+    resizeTimer = setTimeout(renderCharts, 150);
   });
 </script>
 
+### 📝 Publications
 
-### 📝Publications
+<div class="section-intro">
+  Papers are listed in descending order by year of submission before publication, or by year of publication. For a complete list, please visit my
+  <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=-0IuShsAAAAJ">Google Scholar</a> page.
+</div>
 
-<span style="font-family:Arial; font-size:0.8em; text-align:justify;">
-  Papers are listed below, in descending order by year of submission before they are published, or year of publication. Generally, the codes of all the papers will be available. For the full list, please refer to my 
-  <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=-0IuShsAAAAJ" style="color:#00308B;">Google Scholar</a> page.
-</span>
+<div class="list-title">Conference Papers</div>
 
-<ul style="margin-top: 0.1em; margin-bottom: 0.1em; font-family:Arial; font-size:0.9em;">
-  <li><strong>Conference Papers</strong></li>
-</ul>
-
-<div class="publication-container">
-  <div class="pub-img-wrapper">
-    <div class="paper-badge">CCF A</div>
-    <img src="./images/CPG.png" alt="Publication Image">
+<div class="publication-grid">
+  <div class="publication-container">
+    <div class="pub-img-wrapper">
+      <div class="paper-badge">CCF A</div>
+      <img src="./images/CPG.png" alt="CPG publication image">
+    </div>
+    <div>
+      <div class="pub-meta">NeurIPS 2025</div>
+      <div class="pub-title">Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning.</div>
+      <div class="pub-authors"><strong>Yaxin Hou</strong>, Bo Han, Yuheng Jia, Hui Liu, Junhui Hou.</div>
+    </div>
   </div>
-  <div>
-    <span style="color: #00308B; font-weight: bold">[NeurIPS 2025]</span> Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning.
-    <br>
-    <strong style="color:#4B0082;">Yaxin Hou</strong>, Bo Han, Yuheng Jia, Hui Liu, Junhui Hou.
+
+  <div class="publication-container">
+    <div class="pub-img-wrapper">
+      <div class="paper-badge">CCF A</div>
+      <img src="./images/Meta-Expert.png" alt="Meta-Expert publication image">
+    </div>
+    <div>
+      <div class="pub-meta">ICML 2025</div>
+      <div class="pub-title">A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning.</div>
+      <div class="pub-authors"><strong>Yaxin Hou</strong>, Yuheng Jia.</div>
+    </div>
+  </div>
+
+  <div class="publication-container">
+    <div class="pub-img-wrapper">
+      <div class="paper-badge">CCF A</div>
+      <img src="./images/QAST.png" alt="QAST publication image">
+    </div>
+    <div>
+      <div class="pub-meta">AAAI 2023</div>
+      <div class="pub-title">Quality-Aware Self-Training on Differentiable Synthesis of Rare Relational Data.</div>
+      <div class="pub-authors">Chongsheng Zhang, <strong>Yaxin Hou</strong>, Ke Chen, Shuang Cao, Gaojuan Fan, Ji Liu.</div>
+    </div>
   </div>
 </div>
 
-<div class="publication-container">
-  <div class="pub-img-wrapper">
-    <div class="paper-badge">CCF A</div>
-    <img src="./images/Meta-Expert.png" alt="Publication Image">
-  </div>
-  <div>
-    <span style="color: #00308B; font-weight: bold">[ICML 2025]</span> A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning.
-    <br>
-    <strong style="color:#4B0082;">Yaxin Hou</strong>, Yuheng Jia.
-  </div>
-</div>
+<div class="list-title" style="margin-top: 1.4rem;">Journal Papers</div>
 
-<div class="publication-container">
-  <div class="pub-img-wrapper">
-    <div class="paper-badge">CCF A</div>
-    <img src="./images/QAST.png" alt="Publication Image">
-  </div>
-  <div>
-    <span style="color: #00308B; font-weight: bold">[AAAI 2023]</span> Quality-Aware Self-Training on Differentiable Synthesis of Rare Relational Data.
-    <br>
-    Chongsheng Zhang, <strong style="color:#4B0082;">Yaxin Hou</strong>, Ke Chen, Shuang Cao, Gaojuan Fan, Ji Liu.
+<div class="publication-grid">
+  <div class="publication-container">
+    <div class="pub-img-wrapper">
+      <div class="paper-badge">CCF B</div>
+      <img src="./images/imFTP.png" alt="imFTP publication image">
+    </div>
+    <div>
+      <div class="pub-meta">Information Sciences 2024</div>
+      <div class="pub-title">imFTP: Deep imbalance learning via fuzzy transition and prototypical learning.</div>
+      <div class="pub-authors"><strong>Yaxin Hou</strong>, Weiping Ding, Chongsheng Zhang.</div>
+    </div>
   </div>
 </div>
 
-<ul style="margin-top: 0.1em; margin-bottom: 0.1em; font-family:Arial; font-size:0.9em;">
-  <li><strong>Journal Papers</strong></li>
-</ul>
+### 👨‍💻 Professional Services
 
-<div class="publication-container">
-  <div class="pub-img-wrapper">
-    <div class="paper-badge">CCF B</div>
-    <img src="./images/imFTP.png" alt="Publication Image">
+<div class="service-grid">
+  <div class="service-card">
+    <div class="card-title">Conference Reviewer / Program Committee Member</div>
+    <ul class="clean-list">
+      <li>The International Conference on Machine Learning (ICML), 2026.</li>
+      <li>The European Conference on Computer Vision (ECCV), 2026.</li>
+      <li>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
+      <li>The Annual Conference on Neural Information Processing Systems (NeurIPS), 2025.</li>
+      <li>The IEEE International Symposium on Machine Learning and Media Computing (MLMC), 2025–2026.</li>
+    </ul>
   </div>
-  <div>
-    <span style="color: #00308B; font-weight: bold">[Inf. Sci. 2024]</span> imFTP: Deep imbalance learning via fuzzy transition and prototypical learning.
-    <br>
-    <strong style="color:#4B0082;">Yaxin Hou</strong>, Weiping Ding, Chongsheng Zhang.
+
+  <div class="service-card">
+    <div class="card-title">Journal Reviewer</div>
+    <ul class="clean-list">
+      <li>International Journal of Machine Learning and Cybernetics (IJMLC).</li>
+      <li>Transactions on Machine Learning Research (TMLR).</li>
+      <li>Pattern Recognition (PR).</li>
+    </ul>
   </div>
 </div>
 
+### 🏆 Honors & Awards
 
-### 👨‍💻Professional Services
+<div class="award-grid">
+  <div class="award-card">
+    <div class="card-title">Scholarships</div>
+    <ul class="clean-list">
+      <li>National Scholarship (2025, The Chinese Ministry of Education).</li>
+      <li>Master's Academic Scholarship (2020, The Henan Department of Education).</li>
+      <li>National Encouragement Scholarship (2019, The Henan Department of Education).</li>
+      <li>National Encouragement Scholarship (2017, The Henan Department of Education).</li>
+    </ul>
+  </div>
 
-<ul style="margin-top: 0.1em; margin-bottom: 0.1em; font-family:Arial; font-size:0.9em;">
-  <li><strong>Conference Reviewer/Program Committee Member</strong></li>
-  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
-    <li>The International Conference on Machine Learning (ICML), 2026.</li>
-    <li>The European Conference on Computer Vision (ECCV), 2026.</li>
-    <li>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
-    <li>The Annual Conference on Neural Information Processing Systems (NeurIPS), 2025.</li>
-    <li>The IEEE International Symposium on Machine Learning and Media Computing (MLMC), 2025-2026.</li>
-  </ul>
+  <div class="award-card">
+    <div class="card-title">Honors</div>
+    <ul class="clean-list">
+      <li>Merit Graduate Student (2025, Southeast University).</li>
+      <li>Outstanding Graduate Student (2023, Henan University).</li>
+      <li>Outstanding Graduate (2020, The Henan Department of Education).</li>
+      <li>Merit Student (2020, The Henan Department of Education).</li>
+    </ul>
+  </div>
+</div>
 
-  <li><strong>Journal Reviewer</strong></li>
-  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
-    <li>International Journal of Machine Learning and Cybernetics (IJMLC).</li>
-    <li>Transactions on Machine Learning Research (TMLR).</li>
-    <li>Pattern Recognition (PR).</li>
-  </ul>
-</ul>
+### 📧 Contact
 
+<div class="contact-card">
+  <p class="contact-line">Room 1009, Liberal Arts Building, School of Computer Science and Engineering.</p>
 
-### 🏆Honors/Awards
-
-<ul style="margin-top: 0.1em; margin-bottom: 0.1em; font-family:Arial; font-size:0.9em;">
-  <li><strong>Scholarship</strong></li>
-  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
-    <li>National Scholarship (2025, The Chinese Ministry of Education).</li>
-    <li>Master's Academic Scholarship (2020, The Henan Department of Education).</li>
-    <li>National Encouragement Scholarship (2019, The Henan Department of Education).</li>
-    <li>National Encouragement Scholarship (2017, The Henan Department of Education).</li>
-  </ul>
-
-  <li><strong>Honor</strong></li>
-  <ul style="margin-top: 0.1em; margin-bottom: 0.1em; padding-left: 1em; font-family:Arial; font-size:0.9em;">
-    <li>Merit Graduate Student (2025, Southeast University).</li>
-    <li>Outstanding Graduate Student (2023, Henan University).</li>
-    <li>Outstanding Graduate (2020, The Henan Department of Education).</li>
-    <li>Merit Student (2020, The Henan Department of Education).</li>
-  </ul>
-</ul>
-
-
-### 📧Contact
-
-<span style="font-family:Arial; font-size:0.8em; text-align:justify;">
-  Room 1009, Liberal Arts Building. School of Computer Science and Engineering.
-</span>
-
-<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 20px 0;">
-  <div style="width: 100%; max-width: 300px; text-align: center;">
-    <div style="width: 100%; max-height: 300px; overflow: hidden; border-radius: 8px;">
+  <div class="map-shell">
+    <div class="map-box">
       <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=4D0h1VqEfuXzDioG4SfurpFAjXyS5BKdHFuIwYdKIHE&cl=ffffff&w=a"></script>
     </div>
   </div>
