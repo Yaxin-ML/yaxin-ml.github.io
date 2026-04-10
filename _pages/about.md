@@ -184,8 +184,8 @@ redirect_from:
   .logo-panel img {
     display: block;
     width: auto;
-    max-width: 120px;
-    max-height: 91px;
+    max-width: 110px;
+    max-height: 83px;
     object-fit: contain;
     filter: grayscale(8%);
     opacity: 0.95;
@@ -387,7 +387,7 @@ redirect_from:
     .logo-panel {
       justify-items: start;
       grid-template-columns: repeat(3, auto);
-      gap: 0.9rem;
+      gap: 0.8rem;
     }
 
     .logo-panel a:first-child {
