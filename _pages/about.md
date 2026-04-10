@@ -282,12 +282,16 @@ redirect_from:
     border-radius: var(--radius);
     background: #fff;
     padding: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .stats-chart {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    min-height: 300px;
+    width: min(100%, 270px);
+    height: 270px;
+    margin: 0 auto;
+    flex: 0 0 auto;
   }
 
   .subheading {
@@ -487,7 +491,8 @@ redirect_from:
     }
 
     .stats-chart {
-      min-height: 260px;
+      width: min(100%, 240px);
+      height: 240px;
     }
   }
 </style>
@@ -576,8 +581,8 @@ redirect_from:
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <script>
-  const conferenceChart = echarts.init(document.getElementById('conference-chart'), null, { renderer: 'canvas' });
-  const journalChart = echarts.init(document.getElementById('journal-chart'), null, { renderer: 'canvas' });
+  const conferenceChart = echarts.init(document.getElementById('conference-chart'), null, { renderer: 'svg' });
+  const journalChart = echarts.init(document.getElementById('journal-chart'), null, { renderer: 'svg' });
 
   const conferenceData = [
     { value: 1, name: 'ICLR' },
@@ -645,8 +650,8 @@ redirect_from:
       series: [
         {
           type: 'pie',
-          radius: isMobile ? ['44%', '62%'] : ['50%', '68%'],
-          center: ['50%', '57%'],
+          radius: isMobile ? ['36%', '54%'] : ['40%', '58%'],
+          center: ['50%', '56%'],
           minShowLabelAngle: 8,
           itemStyle: {
             borderColor: '#ffffff',
