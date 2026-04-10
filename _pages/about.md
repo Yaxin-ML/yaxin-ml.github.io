@@ -286,7 +286,8 @@ redirect_from:
 
   .stats-chart {
     width: 100%;
-    height: 320px;
+    aspect-ratio: 1 / 1;
+    min-height: 300px;
   }
 
   .subheading {
@@ -486,7 +487,7 @@ redirect_from:
     }
 
     .stats-chart {
-      height: 280px;
+      min-height: 260px;
     }
   }
 </style>
@@ -575,8 +576,8 @@ redirect_from:
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <script>
-  const conferenceChart = echarts.init(document.getElementById('conference-chart'), null, { renderer: 'svg' });
-  const journalChart = echarts.init(document.getElementById('journal-chart'), null, { renderer: 'svg' });
+  const conferenceChart = echarts.init(document.getElementById('conference-chart'), null, { renderer: 'canvas' });
+  const journalChart = echarts.init(document.getElementById('journal-chart'), null, { renderer: 'canvas' });
 
   const conferenceData = [
     { value: 1, name: 'ICLR' },
@@ -676,11 +677,31 @@ redirect_from:
   }
 
   renderCharts();
-  let resizeTimer = null;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(renderCharts, 150);
-  });
+
+  if (typeof ResizeObserver !== 'undefined') {
+    const chartContainers = [
+      document.getElementById('conference-chart'),
+      document.getElementById('journal-chart')
+    ].filter(Boolean);
+
+    const resizeObserver = new ResizeObserver(function () {
+      conferenceChart.resize();
+      journalChart.resize();
+    });
+
+    chartContainers.forEach(function (el) {
+      resizeObserver.observe(el);
+    });
+  } else {
+    let resizeTimer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        conferenceChart.resize();
+        journalChart.resize();
+      }, 120);
+    });
+  }
 </script>
 
 <script>
