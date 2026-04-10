@@ -281,15 +281,15 @@ redirect_from:
     border: 1px solid var(--line);
     border-radius: var(--radius);
     background: #fff;
-    padding: 0.9rem;
+    padding: 1rem 1.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .stats-chart {
-    width: min(100%, 270px);
-    height: 270px;
+    width: min(100%, 300px);
+    height: 300px;
     margin: 0 auto;
     flex: 0 0 auto;
   }
@@ -491,8 +491,8 @@ redirect_from:
     }
 
     .stats-chart {
-      width: min(100%, 240px);
-      height: 240px;
+      width: min(100%, 255px);
+      height: 255px;
     }
   }
 </style>
@@ -628,7 +628,7 @@ redirect_from:
             text: title,
             textAlign: 'center',
             fill: '#6b7280',
-            fontSize: isMobile ? 12 : 13,
+            fontSize: isMobile ? 11 : 12,
             fontWeight: 600,
             fontFamily: 'Inter, Arial, sans-serif'
           }
@@ -641,7 +641,7 @@ redirect_from:
             text: String(total),
             textAlign: 'center',
             fill: '#111827',
-            fontSize: isMobile ? 22 : 24,
+            fontSize: isMobile ? 20 : 22,
             fontWeight: 700,
             fontFamily: 'Inter, Arial, sans-serif'
           }
@@ -650,8 +650,8 @@ redirect_from:
       series: [
         {
           type: 'pie',
-          radius: isMobile ? ['36%', '54%'] : ['40%', '58%'],
-          center: ['50%', '56%'],
+          radius: isMobile ? ['40%', '58%'] : ['45%', '64%'],
+          center: ['50%', '58%'],
           minShowLabelAngle: 8,
           itemStyle: {
             borderColor: '#ffffff',
@@ -659,12 +659,12 @@ redirect_from:
           },
           label: {
             color: '#4b5563',
-            fontSize: isMobile ? 10 : 11,
+            fontSize: isMobile ? 9 : 10,
             formatter: isMobile ? '{b}\n{c}' : '{b}: {c}'
           },
           labelLine: {
-            length: isMobile ? 6 : 8,
-            length2: isMobile ? 5 : 7,
+            length: isMobile ? 5 : 7,
+            length2: isMobile ? 4 : 6,
             lineStyle: { color: '#c7d0db' }
           },
           emphasis: { scale: false },
@@ -762,7 +762,7 @@ redirect_from:
       <img src="./images/CPG.png" alt="Publication Image">
     </div>
     <div>
-      <div class="pub-meta">NeurIPS 2025</div>
+      <div class="pub-meta">Annual Conference on Neural Information Processing Systems (NeurIPS), 2025</div>
       <div class="pub-title">Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Bo Han, Yuheng Jia, Hui Liu, Junhui Hou.</div>
     </div>
@@ -774,7 +774,7 @@ redirect_from:
       <img src="./images/Meta-Expert.png" alt="Publication Image">
     </div>
     <div>
-      <div class="pub-meta">ICML 2025</div>
+      <div class="pub-meta">International Conference on Machine Learning (ICML), 2025</div>
       <div class="pub-title">A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Yuheng Jia.</div>
     </div>
@@ -786,7 +786,7 @@ redirect_from:
       <img src="./images/QAST.png" alt="Publication Image">
     </div>
     <div>
-      <div class="pub-meta">AAAI 2023</div>
+      <div class="pub-meta">AAAI Conference on Artificial Intelligence (AAAI), 2023</div>
       <div class="pub-title">Quality-Aware Self-Training on Differentiable Synthesis of Rare Relational Data.</div>
       <div class="pub-authors">Chongsheng Zhang, <strong style="color:#111827;">Yaxin Hou</strong>, Ke Chen, Shuang Cao, Gaojuan Fan, Ji Liu.</div>
     </div>
@@ -801,7 +801,7 @@ redirect_from:
       <img src="./images/imFTP.png" alt="Publication Image">
     </div>
     <div>
-      <div class="pub-meta">Information Sciences 2024</div>
+      <div class="pub-meta">Information Sciences (Inf. Sci.), 2024</div>
       <div class="pub-title">imFTP: Deep imbalance learning via fuzzy transition and prototypical learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Weiping Ding, Chongsheng Zhang.</div>
     </div>
