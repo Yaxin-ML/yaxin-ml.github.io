@@ -184,8 +184,8 @@ redirect_from:
   .logo-panel img {
     display: block;
     width: auto;
-    max-width: 90px;
-    max-height: 68px;
+    max-width: 120px;
+    max-height: 91px;
     object-fit: contain;
     filter: grayscale(8%);
     opacity: 0.95;
