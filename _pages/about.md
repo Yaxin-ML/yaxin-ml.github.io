@@ -465,23 +465,24 @@ redirect_from:
   .pub-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.55rem;
-    margin-top: 0.2rem;
+    gap: 0.48rem;
+    margin-top: 0.14rem;
   }
 
   .pub-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.34rem;
-    min-width: 110px;
-    padding: 0.44rem 0.9rem;
+    gap: 0.28rem;
+    min-width: 92px;
+    padding: 0.32rem 0.7rem;
     border-radius: 999px;
     border: 1px solid #d7e3ef;
     background: #f8fbfe;
     color: var(--accent);
-    font-size: 0.84rem;
-    font-weight: 700;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.15;
     text-decoration: none !important;
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
   }
