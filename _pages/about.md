@@ -193,9 +193,10 @@ redirect_from:
 
   .news-box {
     border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: #fff;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
     overflow: hidden;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.035);
   }
 
   .news-list {
@@ -208,9 +209,14 @@ redirect_from:
     display: grid;
     grid-template-columns: 92px minmax(0, 1fr);
     gap: 1rem;
-    padding: 0.9rem 1rem;
+    padding: 1rem 1.05rem;
     border-bottom: 1px solid var(--line);
     align-items: start;
+    transition: background 0.18s ease;
+  }
+
+  .news-item:hover {
+    background: #fbfdff;
   }
 
   .news-list .news-item:last-child {
@@ -226,6 +232,47 @@ redirect_from:
 
   .news-content {
     color: var(--text);
+  }
+
+  .news-links {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-left: 0.55rem;
+    vertical-align: middle;
+  }
+
+  .news-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32rem;
+    padding: 0.22rem 0.58rem;
+    border-radius: 999px;
+    border: 1px solid #d7e3ef;
+    background: #fff;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  }
+
+  .news-btn:hover {
+    background: var(--accent-soft);
+    border-color: #bfd3e6;
+    color: #163f64;
+    text-decoration: none !important;
+  }
+
+  .news-btn.secondary {
+    color: #475467;
+    border-color: #e4e7ec;
+  }
+
+  .news-btn.secondary:hover {
+    background: #f8fafc;
+    color: #344054;
   }
 
   .news-pagination {
@@ -279,13 +326,14 @@ redirect_from:
 
   .stats-card {
     border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: #fff;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
     padding: 1rem 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: visible;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.035);
   }
 
   .stats-chart {
@@ -297,10 +345,21 @@ redirect_from:
   }
 
   .subheading {
-    margin: 1.2rem 0 0.75rem;
-    font-size: 0.95rem;
+    margin: 1.45rem 0 0.85rem;
+    font-size: 0.98rem;
     font-weight: 700;
     color: var(--title);
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .subheading::before {
+    content: '';
+    width: 4px;
+    height: 0.95rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--accent) 0%, #7fa1c0 100%);
   }
 
   .pub-list {
@@ -318,11 +377,13 @@ redirect_from:
     border-radius: 18px;
     align-items: start;
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.035);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
 
   .pub-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+    transform: translateY(-2px);
+    border-color: #d9e4ef;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.07);
   }
 
   .pub-thumb {
@@ -366,6 +427,27 @@ redirect_from:
     font-weight: 700;
   }
 
+
+  .pub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    border: 1px solid #d8e4f0;
+    color: var(--accent);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
   .pub-title {
     margin: 0 0 0.4rem;
     color: var(--title);
@@ -390,33 +472,38 @@ redirect_from:
   .pub-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.34rem;
-    padding: 0.38rem 0.78rem;
+    min-width: 110px;
+    padding: 0.44rem 0.9rem;
     border-radius: 999px;
-    border: 1px solid #d7e3ef;
-    background: #fff;
-    color: var(--accent);
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #ffffff;
     font-size: 0.84rem;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none !important;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    box-shadow: 0 4px 10px rgba(31, 78, 121, 0.12);
   }
 
   .pub-btn:hover {
-    background: var(--accent-soft);
-    border-color: #bfd3e6;
-    color: #163f64;
+    background: #173f63;
+    border-color: #173f63;
+    color: #ffffff;
     text-decoration: none !important;
   }
 
   .pub-btn.secondary {
+    background: #ffffff;
     color: #475467;
-    border-color: #e4e7ec;
+    border-color: #d9e1ea;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
   }
 
   .pub-btn.secondary:hover {
     background: #f8fafc;
     color: #344054;
+    border-color: #cfd8e3;
   }
 
   .two-col-grid {
@@ -538,6 +625,11 @@ redirect_from:
       gap: 0.25rem;
     }
 
+    .news-links {
+      margin-left: 0;
+      margin-top: 0.45rem;
+    }
+
     .pub-thumb {
       height: 150px;
       padding: 0.75rem;
@@ -595,11 +687,11 @@ redirect_from:
   <ul class="news-list" id="news-list">
     <li class="news-item">
       <div class="news-date">2026.01</div>
-      <div class="news-content">🎉 Our work “Samples Are Not Equal: A Sample Selection Approach for Deep Clustering” is accepted by ICLR 2026. <a href="https://iclr.cc/virtual/2026/poster/10009380">Paper</a> · <a href="https://github.com/notoaudrey/Samples-Are-Not-Equal">Code</a></div>
+      <div class="news-content">🎉 Our work “Samples Are Not Equal: A Sample Selection Approach for Deep Clustering” is accepted by ICLR 2026.<span class="news-links"><a class="news-btn" href="https://iclr.cc/virtual/2026/poster/10009380" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/notoaudrey/Samples-Are-Not-Equal" target="_blank">💻 Code</a></span></div>
     </li>
     <li class="news-item">
       <div class="news-date">2025.11</div>
-      <div class="news-content">🎉 Our work “DiCaP: Distribution-Calibrated Pseudo-labeling for Semi-Supervised Multi-Label Learning” is accepted by AAAI 2026. <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39302">Paper</a> · <a href="https://github.com/hb-studying/DiCaP">Code</a></div>
+      <div class="news-content">🎉 Our work “DiCaP: Distribution-Calibrated Pseudo-labeling for Semi-Supervised Multi-Label Learning” is accepted by AAAI 2026.<span class="news-links"><a class="news-btn" href="https://ojs.aaai.org/index.php/AAAI/article/view/39302" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/hb-studying/DiCaP" target="_blank">💻 Code</a></span></div>
     </li>
     <li class="news-item">
       <div class="news-date">2025.10</div>
@@ -607,11 +699,11 @@ redirect_from:
     </li>
     <li class="news-item">
       <div class="news-date">2025.09</div>
-      <div class="news-content">🎉 Our work “Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning” is accepted by NeurIPS 2025. <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116160">Paper</a> · <a href="https://github.com/YaxinHou/CPG">Code</a></div>
+      <div class="news-content">🎉 Our work “Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning” is accepted by NeurIPS 2025.<span class="news-links"><a class="news-btn" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116160" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/YaxinHou/CPG" target="_blank">💻 Code</a></span></div>
     </li>
     <li class="news-item">
       <div class="news-date">2025.05</div>
-      <div class="news-content">🎉 Our work “A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning” is accepted by ICML 2025. <a href="https://icml.cc/virtual/2025/poster/44441">Paper</a> · <a href="https://github.com/YaxinHou/Meta-Expert">Code</a></div>
+      <div class="news-content">🎉 Our work “A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning” is accepted by ICML 2025.<span class="news-links"><a class="news-btn" href="https://icml.cc/virtual/2025/poster/44441" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/YaxinHou/Meta-Expert" target="_blank">💻 Code</a></span></div>
     </li>
   </ul>
 
@@ -637,6 +729,10 @@ redirect_from:
   <div class="stats-card">
     <div id="journal-chart" class="stats-chart"></div>
   </div>
+</div>
+
+<div class="section-note" style="margin-top:0.85rem;">
+  Currently listed on this homepage: <strong>6 papers</strong>, including <strong>5 conference papers</strong> and <strong>1 journal paper</strong>.
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
@@ -830,6 +926,7 @@ redirect_from:
       <img src="./images/CPG.png" alt="Publication Image">
     </div>
     <div>
+      <div class="pub-tags"><span class="pub-tag">Conference</span><span class="pub-tag">CCF A</span><span class="pub-tag">2025</span></div>
       <div class="pub-meta">Annual Conference on Neural Information Processing Systems (NeurIPS), 2025.</div>
       <div class="pub-title">Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Bo Han, Yuheng Jia, Hui Liu, Junhui Hou.</div>
@@ -846,6 +943,7 @@ redirect_from:
       <img src="./images/Meta-Expert.png" alt="Publication Image">
     </div>
     <div>
+      <div class="pub-tags"><span class="pub-tag">Conference</span><span class="pub-tag">CCF A</span><span class="pub-tag">2025</span></div>
       <div class="pub-meta">International Conference on Machine Learning (ICML), 2025.</div>
       <div class="pub-title">A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Yuheng Jia.</div>
@@ -862,6 +960,7 @@ redirect_from:
       <img src="./images/QAST.png" alt="Publication Image">
     </div>
     <div>
+      <div class="pub-tags"><span class="pub-tag">Conference</span><span class="pub-tag">CCF A</span><span class="pub-tag">2023</span></div>
       <div class="pub-meta">AAAI Conference on Artificial Intelligence (AAAI), 2023.</div>
       <div class="pub-title">Quality-Aware Self-Training on Differentiable Synthesis of Rare Relational Data.</div>
       <div class="pub-authors">Chongsheng Zhang, <strong style="color:#111827;">Yaxin Hou</strong>, Ke Chen, Shuang Cao, Gaojuan Fan, Ji Liu.</div>
@@ -881,6 +980,7 @@ redirect_from:
       <img src="./images/imFTP.png" alt="Publication Image">
     </div>
     <div>
+      <div class="pub-tags"><span class="pub-tag">Journal</span><span class="pub-tag">CCF B</span><span class="pub-tag">2024</span></div>
       <div class="pub-meta">Information Sciences (Inf. Sci.), 2024.</div>
       <div class="pub-title">imFTP: Deep imbalance learning via fuzzy transition and prototypical learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Weiping Ding, Chongsheng Zhang.</div>
