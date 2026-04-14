@@ -477,19 +477,19 @@ redirect_from:
     min-width: 110px;
     padding: 0.44rem 0.9rem;
     border-radius: 999px;
-    border: 1px solid var(--accent);
-    background: var(--accent);
-    color: #ffffff;
+    border: 1px solid #d7e3ef;
+    background: #f8fbfe;
+    color: var(--accent);
     font-size: 0.84rem;
     font-weight: 700;
     text-decoration: none !important;
-    box-shadow: 0 4px 10px rgba(31, 78, 121, 0.12);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
   }
 
   .pub-btn:hover {
-    background: #173f63;
-    border-color: #173f63;
-    color: #ffffff;
+    background: var(--accent-soft);
+    border-color: #bfd3e6;
+    color: #163f64;
     text-decoration: none !important;
   }
 
