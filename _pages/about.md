@@ -42,7 +42,7 @@ redirect_from:
   a {
     color: var(--accent);
     text-decoration: none;
-    transition: color 0.18s ease, border-color 0.18s ease;
+    transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
   }
 
   a:hover {
@@ -305,27 +305,33 @@ redirect_from:
 
   .pub-list {
     display: grid;
-    gap: 0.9rem;
+    gap: 1rem;
   }
 
   .pub-card {
     display: grid;
     grid-template-columns: 184px minmax(0, 1fr);
     gap: 1rem;
-    padding: 0.95rem;
-    background: #fff;
+    padding: 1rem;
+    background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
     border: 1px solid var(--line);
-    border-radius: var(--radius);
+    border-radius: 18px;
     align-items: start;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.035);
+  }
+
+  .pub-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
   }
 
   .pub-thumb {
     position: relative;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
     background: linear-gradient(180deg, #fbfcfd 0%, #f6f8fa 100%);
     border: 1px solid var(--line);
-    height: 124px;
+    height: 128px;
     padding: 0.7rem;
     display: flex;
     align-items: center;
@@ -344,9 +350,9 @@ redirect_from:
     position: absolute;
     top: 9px;
     left: 9px;
-    padding: 0.16rem 0.42rem;
+    padding: 0.16rem 0.46rem;
     border-radius: 999px;
-    background: rgba(17, 24, 39, 0.78);
+    background: rgba(17, 24, 39, 0.8);
     color: #fff;
     font-size: 0.68rem;
     font-weight: 700;
@@ -354,23 +360,61 @@ redirect_from:
   }
 
   .pub-meta {
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.36rem;
     color: var(--accent);
     font-size: 0.82rem;
     font-weight: 700;
   }
 
   .pub-title {
-    margin: 0 0 0.35rem;
+    margin: 0 0 0.4rem;
     color: var(--title);
-    font-size: 0.98rem;
+    font-size: 1rem;
     line-height: 1.45;
-    font-weight: 650;
+    font-weight: 700;
   }
 
   .pub-authors {
     color: var(--muted);
     line-height: 1.65;
+    margin-bottom: 0.75rem;
+  }
+
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.2rem;
+  }
+
+  .pub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.34rem;
+    padding: 0.38rem 0.78rem;
+    border-radius: 999px;
+    border: 1px solid #d7e3ef;
+    background: #fff;
+    color: var(--accent);
+    font-size: 0.84rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  }
+
+  .pub-btn:hover {
+    background: var(--accent-soft);
+    border-color: #bfd3e6;
+    color: #163f64;
+  }
+
+  .pub-btn.secondary {
+    color: #475467;
+    border-color: #e4e7ec;
+  }
+
+  .pub-btn.secondary:hover {
+    background: #f8fafc;
+    color: #344054;
   }
 
   .two-col-grid {
@@ -474,7 +518,6 @@ redirect_from:
     .author__urls a {
       font-size: 0.91rem !important;
     }
-
 
     h3 {
       margin-top: 2.2rem;
@@ -788,6 +831,10 @@ redirect_from:
       <div class="pub-meta">Annual Conference on Neural Information Processing Systems (NeurIPS), 2025.</div>
       <div class="pub-title">Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Bo Han, Yuheng Jia, Hui Liu, Junhui Hou.</div>
+      <div class="pub-links">
+        <a class="pub-btn" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116160" target="_blank">📄 Paper</a>
+        <a class="pub-btn secondary" href="https://github.com/YaxinHou/CPG" target="_blank">💻 Code</a>
+      </div>
     </div>
   </div>
 
@@ -800,6 +847,10 @@ redirect_from:
       <div class="pub-meta">International Conference on Machine Learning (ICML), 2025.</div>
       <div class="pub-title">A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Yuheng Jia.</div>
+      <div class="pub-links">
+        <a class="pub-btn" href="https://icml.cc/virtual/2025/poster/44441" target="_blank">📄 Paper</a>
+        <a class="pub-btn secondary" href="https://github.com/YaxinHou/Meta-Expert" target="_blank">💻 Code</a>
+      </div>
     </div>
   </div>
 
@@ -812,6 +863,10 @@ redirect_from:
       <div class="pub-meta">AAAI Conference on Artificial Intelligence (AAAI), 2023.</div>
       <div class="pub-title">Quality-Aware Self-Training on Differentiable Synthesis of Rare Relational Data.</div>
       <div class="pub-authors">Chongsheng Zhang, <strong style="color:#111827;">Yaxin Hou</strong>, Ke Chen, Shuang Cao, Gaojuan Fan, Ji Liu.</div>
+      <div class="pub-links">
+        <a class="pub-btn" href="https://ojs.aaai.org/index.php/AAAI/article/view/25811" target="_blank">📄 Paper</a>
+        <a class="pub-btn secondary" href="https://github.com/yaxinhou/QAST" target="_blank">💻 Code</a>
+      </div>
     </div>
   </div>
 </div>
@@ -827,6 +882,10 @@ redirect_from:
       <div class="pub-meta">Information Sciences (Inf. Sci.), 2024.</div>
       <div class="pub-title">imFTP: Deep imbalance learning via fuzzy transition and prototypical learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Weiping Ding, Chongsheng Zhang.</div>
+      <div class="pub-links">
+        <a class="pub-btn" href="https://www.sciencedirect.com/science/article/pii/S002002552400985X" target="_blank">📄 Paper</a>
+        <a class="pub-btn secondary" href="https://github.com/yaxinhou/imFTP" target="_blank">💻 Code</a>
+      </div>
     </div>
   </div>
 </div>
