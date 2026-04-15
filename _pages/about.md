@@ -232,7 +232,7 @@ redirect_from:
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 126px;
+    min-height: 112px;
     width: 100%;
     min-width: 0;
     padding: 1rem 1.15rem;
@@ -246,7 +246,7 @@ redirect_from:
 
   .logo-panel a:first-child {
     grid-column: 1 / -1;
-    min-height: 146px;
+    min-height: 128px;
   }
 
   .logo-panel a:hover {
@@ -259,14 +259,14 @@ redirect_from:
     display: block;
     width: auto;
     max-width: 100%;
-    max-height: 88px;
+    max-height: 76px;
     object-fit: contain;
     filter: grayscale(6%);
     opacity: 0.96;
   }
 
   .logo-panel a:first-child img {
-    max-height: 92px;
+    max-height: 80px;
   }
 
   .news-box,
