@@ -486,15 +486,6 @@ redirect_from:
     position: relative;
   }
 
-  .stats-card::before,
-  .stats-summary-card::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(36, 91, 146, 0.95), rgba(143, 178, 209, 0.45), rgba(255,255,255,0));
-  }
-
   .stats-card-head-top {
     text-align: center;
     margin-bottom: 0.2rem;
@@ -544,7 +535,7 @@ redirect_from:
     border-radius: 18px;
     background: rgba(255,255,255,0.86);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
-    text-align: left;
+    text-align: center;
   }
 
   .stats-metric-label {
@@ -1083,25 +1074,13 @@ redirect_from:
         {
           type: 'text',
           left: 'center',
-          top: '42%',
-          style: {
-            text: 'Papers',
-            textAlign: 'center',
-            fill: '#6b7280',
-            fontSize: isMobile ? 11 : 12,
-            fontWeight: 600,
-            fontFamily: 'Inter, Arial, sans-serif'
-          }
-        },
-        {
-          type: 'text',
-          left: 'center',
           top: '50%',
           style: {
             text: '6',
             textAlign: 'center',
+            textVerticalAlign: 'middle',
             fill: '#0f172a',
-            fontSize: isMobile ? 22 : 24,
+            fontSize: isMobile ? 24 : 28,
             fontWeight: 800,
             fontFamily: 'Inter, Arial, sans-serif'
           }
@@ -1111,7 +1090,7 @@ redirect_from:
         {
           type: 'pie',
           radius: isMobile ? ['42%', '60%'] : ['48%', '66%'],
-          center: ['50%', '43%'],
+          center: ['50%', '50%'],
           minAngle: 8,
           avoidLabelOverlap: true,
           itemStyle: {
