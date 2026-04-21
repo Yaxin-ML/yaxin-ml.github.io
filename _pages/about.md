@@ -873,6 +873,45 @@ redirect_from:
   </div>
 </div>
 
+<script>
+  (function () {
+    const list = document.getElementById('news-list');
+    const prevBtn = document.getElementById('news-prev');
+    const nextBtn = document.getElementById('news-next');
+    const pageInfo = document.getElementById('news-page-info');
+    if (!list || !prevBtn || !nextBtn || !pageInfo) return;
+
+    const items = Array.from(list.querySelectorAll('.news-item'));
+    const perPage = 3;
+    const totalPages = Math.max(1, Math.ceil(items.length / perPage));
+    let currentPage = 1;
+
+    function renderNewsPage(page) {
+      currentPage = Math.min(Math.max(page, 1), totalPages);
+      const start = (currentPage - 1) * perPage;
+      const end = start + perPage;
+
+      items.forEach((item, index) => {
+        item.style.display = index >= start && index < end ? 'grid' : 'none';
+      });
+
+      pageInfo.textContent = `Page ${currentPage} / ${totalPages}`;
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+    }
+
+    prevBtn.addEventListener('click', function () {
+      renderNewsPage(currentPage - 1);
+    });
+
+    nextBtn.addEventListener('click', function () {
+      renderNewsPage(currentPage + 1);
+    });
+
+    renderNewsPage(1);
+  })();
+</script>
+
 ### 📊 Publication Statistics
 
 <div class="section-note">
@@ -1028,45 +1067,6 @@ redirect_from:
       }, 120);
     });
   }
-</script>
-
-<script>
-  (function () {
-    const list = document.getElementById('news-list');
-    const prevBtn = document.getElementById('news-prev');
-    const nextBtn = document.getElementById('news-next');
-    const pageInfo = document.getElementById('news-page-info');
-    if (!list || !prevBtn || !nextBtn || !pageInfo) return;
-
-    const items = Array.from(list.querySelectorAll('.news-item'));
-    const perPage = 3;
-    const totalPages = Math.max(1, Math.ceil(items.length / perPage));
-    let currentPage = 1;
-
-    function renderNewsPage(page) {
-      currentPage = Math.min(Math.max(page, 1), totalPages);
-      const start = (currentPage - 1) * perPage;
-      const end = start + perPage;
-
-      items.forEach((item, index) => {
-        item.style.display = index >= start && index < end ? 'grid' : 'none';
-      });
-
-      pageInfo.textContent = `Page ${currentPage} / ${totalPages}`;
-      prevBtn.disabled = currentPage === 1;
-      nextBtn.disabled = currentPage === totalPages;
-    }
-
-    prevBtn.addEventListener('click', function () {
-      renderNewsPage(currentPage - 1);
-    });
-
-    nextBtn.addEventListener('click', function () {
-      renderNewsPage(currentPage + 1);
-    });
-
-    renderNewsPage(1);
-  })();
 </script>
 
 ### 📝 Publications
