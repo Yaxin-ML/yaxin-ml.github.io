@@ -900,28 +900,51 @@ redirect_from:
     </div>
   </div>
 
-  <div class="stats-wrap refined-stats-wrap">
+  <div class="stats-hybrid-wrap">
     <div class="stats-card refined-stats-card">
       <div class="stats-card-head">
         <div class="stats-card-title">Conference Papers</div>
-        <div class="stats-card-subtitle">By venue</div>
+        <div class="stats-card-subtitle">Distribution by venue</div>
       </div>
       <div id="conference-chart" class="stats-chart"></div>
     </div>
 
-    <div class="stats-card refined-stats-card">
-      <div class="stats-card-head">
-        <div class="stats-card-title">Journal Papers</div>
-        <div class="stats-card-subtitle">By venue</div>
+    <div class="journal-highlight-card">
+      <div class="journal-highlight-topline">Journal Publication</div>
+
+      <div class="journal-main-number">1</div>
+      <div class="journal-main-label">paper currently listed</div>
+
+      <div class="journal-venue-chip">Information Sciences (Inf. Sci.)</div>
+
+      <div class="journal-meta-grid">
+        <div class="journal-meta-item">
+          <span class="journal-meta-label">Type</span>
+          <span class="journal-meta-value">Journal</span>
+        </div>
+        <div class="journal-meta-item">
+          <span class="journal-meta-label">Level</span>
+          <span class="journal-meta-value">CCF B</span>
+        </div>
+        <div class="journal-meta-item">
+          <span class="journal-meta-label">Year</span>
+          <span class="journal-meta-value">2024</span>
+        </div>
+        <div class="journal-meta-item">
+          <span class="journal-meta-label">Share</span>
+          <span class="journal-meta-value">16.7%</span>
+        </div>
       </div>
-      <div id="journal-chart" class="stats-chart"></div>
+
+      <div class="journal-card-note">
+        The journal section is currently represented by one paper published in <strong>Information Sciences</strong>.
+      </div>
     </div>
   </div>
 
   <div class="stats-footer-note">
     Currently listed on this homepage:
-    <strong>6 papers</strong>,
-    including <strong>5 conference papers</strong> and
+    <strong>6 papers</strong>, including <strong>5 conference papers</strong> and
     <strong>1 journal paper</strong>.
   </div>
 </div>
@@ -994,8 +1017,11 @@ redirect_from:
     color: var(--title);
   }
 
-  .refined-stats-wrap {
+  .stats-hybrid-wrap {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: 1.1rem;
+    align-items: stretch;
   }
 
   .refined-stats-card {
@@ -1004,7 +1030,8 @@ redirect_from:
     overflow: hidden;
   }
 
-  .refined-stats-card::before {
+  .refined-stats-card::before,
+  .journal-highlight-card::before {
     content: '';
     position: absolute;
     inset: 0 0 auto 0;
@@ -1030,6 +1057,100 @@ redirect_from:
     color: var(--muted);
   }
 
+  .journal-highlight-card {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(251,253,255,0.98) 100%);
+    padding: 1.2rem 1.15rem 1.05rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .journal-highlight-topline {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
+  }
+
+  .journal-main-number {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--title);
+  }
+
+  .journal-main-label {
+    margin-top: 0.35rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .journal-venue-chip {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-top: 1rem;
+    padding: 0.42rem 0.8rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    border: 1px solid #d8e4f0;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .journal-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin-top: 1rem;
+  }
+
+  .journal-meta-item {
+    padding: 0.78rem 0.82rem;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.86);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
+  }
+
+  .journal-meta-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 0.26rem;
+  }
+
+  .journal-meta-value {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--title);
+  }
+
+  .journal-card-note {
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.72;
+  }
+
   .stats-footer-note {
     margin-top: 0.95rem;
     padding: 0.9rem 1rem;
@@ -1040,6 +1161,12 @@ redirect_from:
     font-size: 0.92rem;
     line-height: 1.7;
     box-shadow: var(--shadow-xs);
+  }
+
+  @media (max-width: 900px) {
+    .stats-hybrid-wrap {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 640px) {
@@ -1057,6 +1184,15 @@ redirect_from:
       font-size: 1.18rem;
     }
 
+    .journal-main-number {
+      font-size: 2.45rem;
+    }
+
+    .journal-meta-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
     .stats-footer-note {
       padding: 0.82rem 0.9rem;
     }
@@ -1066,17 +1202,12 @@ redirect_from:
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <script>
   const conferenceChart = echarts.init(document.getElementById('conference-chart'), null, { renderer: 'svg' });
-  const journalChart = echarts.init(document.getElementById('journal-chart'), null, { renderer: 'svg' });
 
   const conferenceData = [
     { value: 1, name: 'ICLR' },
     { value: 1, name: 'NeurIPS' },
     { value: 1, name: 'ICML' },
     { value: 2, name: 'AAAI' }
-  ];
-
-  const journalData = [
-    { value: 1, name: 'Inf. Sci.' }
   ];
 
   function buildPieOption(title, total, data, colors) {
@@ -1177,37 +1308,27 @@ redirect_from:
       buildPieOption('Conference', 5, conferenceData, ['#2f5f8f', '#4f7aa6', '#7b9bbb', '#b7c8d9']),
       true
     );
-    journalChart.setOption(
-      buildPieOption('Journal', 1, journalData, ['#5b7ea3']),
-      true
-    );
     conferenceChart.resize();
-    journalChart.resize();
   }
 
   renderCharts();
 
   if (typeof ResizeObserver !== 'undefined') {
-    const chartContainers = [
-      document.getElementById('conference-chart'),
-      document.getElementById('journal-chart')
-    ].filter(Boolean);
+    const chartContainer = document.getElementById('conference-chart');
 
     const resizeObserver = new ResizeObserver(function () {
       conferenceChart.resize();
-      journalChart.resize();
     });
 
-    chartContainers.forEach(function (el) {
-      resizeObserver.observe(el);
-    });
+    if (chartContainer) {
+      resizeObserver.observe(chartContainer);
+    }
   } else {
     let resizeTimer = null;
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () {
         conferenceChart.resize();
-        journalChart.resize();
       }, 120);
     });
   }
