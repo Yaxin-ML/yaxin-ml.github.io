@@ -1094,7 +1094,7 @@ redirect_from:
           top: isMobile ? 30 : 30,
           bottom: isMobile ? 30 : 30,
           radius: isMobile ? ['50%', '72%'] : ['58%', '82%'],
-          center: ['50%', '52%'],
+          center: ['50%', '50%'],
           minAngle: 8,
           avoidLabelOverlap: true,
           itemStyle: {
