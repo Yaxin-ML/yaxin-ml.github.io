@@ -1091,10 +1091,10 @@ redirect_from:
           type: 'pie',
           left: isMobile ? 16 : 24,
           right: isMobile ? 16 : 24,
-          top: isMobile ? 26 : 28,
-          bottom: isMobile ? 34 : 36,
+          top: isMobile ? 30 : 30,
+          bottom: isMobile ? 30 : 30,
           radius: isMobile ? ['50%', '72%'] : ['58%', '82%'],
-          center: ['50%', '54%'],
+          center: ['50%', '52%'],
           minAngle: 8,
           avoidLabelOverlap: true,
           itemStyle: {
