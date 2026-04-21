@@ -1074,7 +1074,7 @@ redirect_from:
         {
           type: 'text',
           left: 'center',
-          top: '30%',
+          top: '45%',
           style: {
             text: '6',
             textAlign: 'center',
