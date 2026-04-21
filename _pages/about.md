@@ -323,7 +323,8 @@ redirect_from:
   .stats-card,
   .info-card,
   .contact-card,
-  .pub-card {
+  .pub-card,
+  .stats-summary-card {
     backdrop-filter: blur(8px);
   }
 
@@ -470,8 +471,9 @@ redirect_from:
 
   .stats-wrap {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 0.95fr;
     gap: 1rem;
+    align-items: stretch;
   }
 
   .stats-card {
@@ -479,19 +481,88 @@ redirect_from:
     border-radius: 24px;
     background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(251,253,255,0.98) 100%);
     padding: 1.1rem 0.9rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible;
     box-shadow: var(--shadow-sm);
+    overflow: visible;
+    position: relative;
+  }
+
+  .stats-card::before,
+  .stats-summary-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(36, 91, 146, 0.95), rgba(143, 178, 209, 0.45), rgba(255,255,255,0));
+  }
+
+  .stats-card-head-top {
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+
+  .stats-card-head-top .stats-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--title);
+    line-height: 1.3;
+  }
+
+  .stats-card-head-top .stats-card-subtitle {
+    margin-top: 0.22rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.4;
   }
 
   .stats-chart {
-    width: min(100%, 336px);
-    height: 336px;
-    margin: 0 auto;
+    width: min(100%, 340px);
+    height: 300px;
+    margin: 0.1rem auto 0;
     flex: 0 0 auto;
     overflow: visible;
+  }
+
+  .stats-summary-card {
+    position: relative;
+    padding: 1.15rem 1rem 1rem;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(251,253,255,0.98) 100%);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stats-metric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.72rem;
+  }
+
+  .stats-metric-item {
+    padding: 0.9rem 0.9rem 0.82rem;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.86);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
+    text-align: left;
+  }
+
+  .stats-metric-label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .stats-metric-value {
+    display: block;
+    font-size: 1.14rem;
+    font-weight: 800;
+    color: var(--title);
+    line-height: 1.1;
   }
 
   .subheading {
@@ -771,6 +842,7 @@ redirect_from:
 
     .hero,
     .stats-card,
+    .stats-summary-card,
     .info-card,
     .contact-card,
     .pub-card {
@@ -800,8 +872,20 @@ redirect_from:
     }
 
     .stats-chart {
-      width: min(100%, 286px);
-      height: 286px;
+      width: min(100%, 290px);
+      height: 270px;
+    }
+
+    .stats-metric-grid {
+      gap: 0.62rem;
+    }
+
+    .stats-metric-item {
+      padding: 0.8rem 0.78rem 0.74rem;
+    }
+
+    .stats-metric-value {
+      font-size: 1.02rem;
     }
   }
 </style>
@@ -914,41 +998,61 @@ redirect_from:
 
 ### 📊 Publication Statistics
 
-<div class="section-note">
-  A brief overview of publications by venue, including accepted and published papers listed on this homepage.
-</div>
-
 <div class="stats-wrap">
   <div class="stats-card">
-    <div id="conference-chart" class="stats-chart"></div>
+    <div class="stats-card-head stats-card-head-top">
+      <div class="stats-card-title">Papers</div>
+      <div class="stats-card-subtitle">By venue</div>
+    </div>
+    <div id="all-papers-chart" class="stats-chart"></div>
   </div>
-  <div class="stats-card">
-    <div id="journal-chart" class="stats-chart"></div>
-  </div>
-</div>
 
-<div class="section-note" style="margin-top:0.85rem;">
-  Currently listed on this homepage: <strong>6 papers</strong>, including <strong>5 conference papers</strong> and <strong>1 journal paper</strong>.
+  <div class="stats-summary-card">
+    <div class="stats-card-head stats-card-head-top">
+      <div class="stats-card-title">Statistics</div>
+      <div class="stats-card-subtitle">Publication overview</div>
+    </div>
+
+    <div class="stats-metric-grid">
+      <div class="stats-metric-item">
+        <span class="stats-metric-label">CCF A</span>
+        <span class="stats-metric-value">5</span>
+      </div>
+      <div class="stats-metric-item">
+        <span class="stats-metric-label">CCF B</span>
+        <span class="stats-metric-value">1</span>
+      </div>
+      <div class="stats-metric-item">
+        <span class="stats-metric-label">Conference</span>
+        <span class="stats-metric-value">5</span>
+      </div>
+      <div class="stats-metric-item">
+        <span class="stats-metric-label">Journal</span>
+        <span class="stats-metric-value">1</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <script>
-  const conferenceChart = echarts.init(document.getElementById('conference-chart'), null, { renderer: 'svg' });
-  const journalChart = echarts.init(document.getElementById('journal-chart'), null, { renderer: 'svg' });
+  const allPapersChart = echarts.init(
+    document.getElementById('all-papers-chart'),
+    null,
+    { renderer: 'svg' }
+  );
 
-  const conferenceData = [
+  const allPapersData = [
     { value: 1, name: 'ICLR' },
     { value: 1, name: 'NeurIPS' },
     { value: 1, name: 'ICML' },
-    { value: 2, name: 'AAAI' }
-  ];
-
-  const journalData = [
+    { value: 2, name: 'AAAI' },
     { value: 1, name: 'Inf. Sci.' }
   ];
 
-  function buildPieOption(title, total, data, colors) {
+  function buildPieOption() {
     const isMobile = window.innerWidth <= 768;
+
     return {
       tooltip: {
         trigger: 'item',
@@ -956,15 +1060,19 @@ redirect_from:
         backgroundColor: 'rgba(255,255,255,0.98)',
         borderColor: '#e7ebf0',
         borderWidth: 1,
-        textStyle: { color: '#1f2328', fontFamily: 'Inter, Arial, sans-serif' }
+        textStyle: {
+          color: '#1f2328',
+          fontFamily: 'Inter, Arial, sans-serif'
+        }
       },
-      color: colors,
+      color: ['#2f5f8f', '#4f7aa6', '#7b9bbb', '#b7c8d9', '#d7e2ec'],
       legend: {
-        top: 6,
+        bottom: 4,
         left: 'center',
         icon: 'circle',
-        itemWidth: 10,
-        itemHeight: 10,
+        itemWidth: 9,
+        itemHeight: 9,
+        itemGap: isMobile ? 12 : 16,
         textStyle: {
           color: '#4b5563',
           fontSize: isMobile ? 11 : 12,
@@ -975,9 +1083,9 @@ redirect_from:
         {
           type: 'text',
           left: 'center',
-          top: '46%',
+          top: '42%',
           style: {
-            text: title,
+            text: 'Papers',
             textAlign: 'center',
             fill: '#6b7280',
             fontSize: isMobile ? 11 : 12,
@@ -988,13 +1096,13 @@ redirect_from:
         {
           type: 'text',
           left: 'center',
-          top: '54%',
+          top: '50%',
           style: {
-            text: String(total),
+            text: '6',
             textAlign: 'center',
-            fill: '#111827',
-            fontSize: isMobile ? 20 : 22,
-            fontWeight: 700,
+            fill: '#0f172a',
+            fontSize: isMobile ? 22 : 24,
+            fontWeight: 800,
             fontFamily: 'Inter, Arial, sans-serif'
           }
         }
@@ -1002,68 +1110,59 @@ redirect_from:
       series: [
         {
           type: 'pie',
-          left: isMobile ? 10 : 18,
-          right: isMobile ? 10 : 18,
-          top: isMobile ? 18 : 20,
-          bottom: isMobile ? 18 : 20,
-          radius: isMobile ? ['39%', '57%'] : ['44%', '61%'],
-          center: isMobile ? ['50%', '56%'] : ['50%', '57%'],
-          minShowLabelAngle: 8,
+          radius: isMobile ? ['42%', '60%'] : ['48%', '66%'],
+          center: ['50%', '43%'],
+          minAngle: 8,
           avoidLabelOverlap: true,
           itemStyle: {
             borderColor: '#ffffff',
-            borderWidth: 2
+            borderWidth: 3,
+            shadowBlur: 8,
+            shadowColor: 'rgba(15, 23, 42, 0.05)'
           },
           label: {
-            color: '#4b5563',
-            fontSize: isMobile ? 9 : 11,
-            formatter: isMobile ? '{b}\n{c}' : '{b}: {c}',
-            width: isMobile ? 44 : 64,
-            overflow: 'break'
+            color: '#475467',
+            fontSize: isMobile ? 10 : 11,
+            fontWeight: 600,
+            formatter: isMobile ? '{b}\n{c}' : '{b}: {c}'
           },
           labelLine: {
-            length: isMobile ? 6 : 9,
-            length2: isMobile ? 6 : 10,
-            maxSurfaceAngle: 80,
-            lineStyle: { color: '#c7d0db' }
+            length: isMobile ? 8 : 10,
+            length2: isMobile ? 8 : 12,
+            lineStyle: {
+              color: '#cbd5e1'
+            }
           },
-          emphasis: { scale: false },
-          data: data
+          emphasis: {
+            scale: true,
+            scaleSize: 4
+          },
+          data: allPapersData
         }
       ]
     };
   }
 
   function renderCharts() {
-    conferenceChart.setOption(buildPieOption('Conference', 5, conferenceData, ['#365d84', '#5f7fa1', '#89a3bd', '#b4c6d8']), true);
-    journalChart.setOption(buildPieOption('Journal', 1, journalData, ['#4d6f8f']), true);
-    conferenceChart.resize();
-    journalChart.resize();
+    allPapersChart.setOption(buildPieOption(), true);
+    allPapersChart.resize();
   }
 
   renderCharts();
 
   if (typeof ResizeObserver !== 'undefined') {
-    const chartContainers = [
-      document.getElementById('conference-chart'),
-      document.getElementById('journal-chart')
-    ].filter(Boolean);
-
     const resizeObserver = new ResizeObserver(function () {
-      conferenceChart.resize();
-      journalChart.resize();
+      allPapersChart.resize();
     });
 
-    chartContainers.forEach(function (el) {
-      resizeObserver.observe(el);
-    });
+    const chartEl = document.getElementById('all-papers-chart');
+    if (chartEl) resizeObserver.observe(chartEl);
   } else {
     let resizeTimer = null;
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () {
-        conferenceChart.resize();
-        journalChart.resize();
+        allPapersChart.resize();
       }, 120);
     });
   }
