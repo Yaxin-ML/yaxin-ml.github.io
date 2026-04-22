@@ -1094,13 +1094,34 @@ redirect_from:
     { year: '2026', value: 2 }
   ];
 
-  function buildPieOption() {
+  function buildYearlyBarOption() {
     const isMobile = window.innerWidth <= 768;
-
+    const visibleCount = isMobile ? 5 : 6;
+    const totalCount = yearlyPapersData.length;
+    const enableZoom = totalCount > visibleCount;
+    const endPercent = enableZoom ? (visibleCount / totalCount) * 100 : 100;
+  
     return {
+      animationDuration: 700,
+      grid: {
+        left: 8,
+        right: 8,
+        top: 8,
+        bottom: enableZoom ? 34 : 24,
+        containLabel: true
+      },
       tooltip: {
-        trigger: 'item',
-        formatter: '{b}: {c} ({d}%)',
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow',
+          shadowStyle: {
+            color: 'rgba(36, 91, 146, 0.05)'
+          }
+        },
+        formatter: function (params) {
+          const item = params[0];
+          return item.name + ': ' + item.value;
+        },
         backgroundColor: 'rgba(255,255,255,0.98)',
         borderColor: '#e7ebf0',
         borderWidth: 1,
@@ -1109,74 +1130,112 @@ redirect_from:
           fontFamily: 'Inter, Arial, sans-serif'
         }
       },
-      color: ['#2f5f8f', '#4f7aa6', '#7b9bbb', '#b7c8d9', '#d7e2ec'],
-      legend: {
-        bottom: 4,
-        left: 'center',
-        icon: 'circle',
-        itemWidth: 9,
-        itemHeight: 9,
-        itemGap: isMobile ? 12 : 16,
-        textStyle: {
-          color: '#4b5563',
-          fontSize: isMobile ? 11 : 12,
+      xAxis: {
+        type: 'category',
+        data: yearlyPapersData.map(item => item.year),
+        axisLine: {
+          lineStyle: {
+            color: '#d7dee7'
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          color: '#667085',
+          fontSize: isMobile ? 10 : 11,
+          margin: 10,
           fontFamily: 'Inter, Arial, sans-serif'
         }
       },
-      graphic: [
-        {
-          type: 'text',
-          left: 'center',
-          top: '40%',
-          style: {
-            text: '6',
-            textAlign: 'center',
-            textVerticalAlign: 'middle',
-            fill: '#0f172a',
-            fontSize: isMobile ? 28 : 34,
-            fontWeight: 800,
-            fontFamily: 'Inter, Arial, sans-serif'
+      yAxis: {
+        type: 'value',
+        min: 0,
+        interval: 1,
+        splitNumber: 3,
+        splitLine: {
+          lineStyle: {
+            color: '#eef2f6'
           }
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          color: '#667085',
+          fontSize: isMobile ? 10 : 11,
+          fontFamily: 'Inter, Arial, sans-serif'
         }
-      ],
+      },
+      dataZoom: enableZoom
+        ? [
+            {
+              type: 'inside',
+              xAxisIndex: 0,
+              filterMode: 'none',
+              zoomLock: true,
+              moveOnMouseMove: true,
+              moveOnMouseWheel: true,
+              preventDefaultMouseMove: false,
+              start: 0,
+              end: endPercent
+            },
+            {
+              type: 'slider',
+              xAxisIndex: 0,
+              height: 14,
+              bottom: 2,
+              borderColor: 'transparent',
+              backgroundColor: '#d1d5db',
+              fillerColor: '#6b7280',
+              handleSize: 14,
+              handleIcon: 'path://M8.2,0.5L5.2,3.5C4.9,3.8,4.9,4.2,5.2,4.5L8.2,7.5C8.7,8,9.5,7.6,9.5,6.9V1.1C9.5,0.4,8.7,0,8.2,0.5Z',
+              handleStyle: {
+                color: '#9ca3af',
+                borderColor: '#9ca3af',
+                borderWidth: 0,
+                shadowBlur: 0
+              },
+              moveHandleSize: 0,
+              showDetail: false,
+              showDataShadow: false,
+              brushSelect: false,
+              labelFormatter: '',
+              dataBackground: {
+                lineStyle: { opacity: 0 },
+                areaStyle: { opacity: 0 }
+              },
+              selectedDataBackground: {
+                lineStyle: { opacity: 0 },
+                areaStyle: { opacity: 0 }
+              },
+              emphasis: {
+                moveHandleStyle: {
+                  opacity: 0
+                }
+              },
+              start: 0,
+              end: endPercent
+            }
+          ]
+        : [],
       series: [
         {
-          type: 'pie',
-          left: isMobile ? 16 : 24,
-          right: isMobile ? 16 : 24,
-          top: isMobile ? 30 : 30,
-          bottom: isMobile ? 30 : 30,
-          radius: isMobile ? ['50%', '72%'] : ['58%', '82%'],
-          center: ['50%', '45%'],
-          minAngle: 8,
-          avoidLabelOverlap: true,
+          type: 'bar',
+          data: yearlyPapersData.map(item => item.value),
+          barWidth: isMobile ? 12 : 14,
           itemStyle: {
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            shadowBlur: 8,
-            shadowColor: 'rgba(15, 23, 42, 0.05)'
-          },
-          label: {
-            color: '#475467',
-            fontSize: isMobile ? 10 : 11,
-            fontWeight: 600,
-            formatter: isMobile ? '{b}\n{c}' : '{b}: {c}',
-            width: isMobile ? 52 : 76,
-            overflow: 'break'
-          },
-          labelLine: {
-            length: isMobile ? 6 : 8,
-            length2: isMobile ? 6 : 9,
-            maxSurfaceAngle: 80,
-            lineStyle: {
-              color: '#cbd5e1'
-            }
+            color: '#979797',
+            borderRadius: [0, 0, 0, 0]
           },
           emphasis: {
-            scale: true,
-            scaleSize: 4
-          },
-          data: allPapersData
+            itemStyle: {
+              color: '#7f7f7f'
+            }
+          }
         }
       ]
     };
