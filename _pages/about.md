@@ -573,16 +573,16 @@ redirect_from:
   }
 
   .stats-mini-chart-frame {
-    border: 1px solid #e9eef5;
-    border-radius: 16px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(250,252,255,0.96) 100%);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-    padding: 0.45rem 0.5rem 0.18rem;
+    border: 1px solid #edf1f6;
+    border-radius: 15px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(251,253,255,0.98) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
+    padding: 0.35rem 0.42rem 0.08rem;
   }
 
   .stats-mini-chart {
     width: 100%;
-    height: 190px;
+    height: 158px;
   }
 
   .subheading {
@@ -909,7 +909,7 @@ redirect_from:
     }
 
     .stats-mini-chart {
-      height: 175px;
+      height: 148px;
     }
   }
 </style>
@@ -1188,10 +1188,10 @@ redirect_from:
     return {
       animationDuration: 700,
       grid: {
-        left: 10,
-        right: 10,
-        top: 12,
-        bottom: 34,
+        left: 8,
+        right: 8,
+        top: 8,
+        bottom: 24,
         containLabel: true
       },
       tooltip: {
@@ -1259,28 +1259,39 @@ redirect_from:
           type: 'inside',
           xAxisIndex: 0,
           filterMode: 'none',
+          zoomLock: false,
+          moveOnMouseMove: true,
+          moveOnMouseWheel: true,
+          preventDefaultMouseMove: false,
           start: 0,
           end: 100
         },
         {
           type: 'slider',
           xAxisIndex: 0,
-          height: 8,
-          bottom: 6,
+          height: 5,
+          bottom: 4,
           borderColor: 'transparent',
-          backgroundColor: '#edf2f7',
-          fillerColor: '#a7b1bd',
-          handleSize: 10,
-          handleIcon: 'M8.2,13.4V2.6c0-0.3-0.2-0.5-0.5-0.5H6.3C6,2.1,5.8,2.3,5.8,2.6v10.8c0,0.3,0.2,0.5,0.5,0.5h1.4C8,13.9,8.2,13.7,8.2,13.4z',
-          handleStyle: {
-            color: '#c3ccd6',
-            borderColor: '#c3ccd6',
-            shadowBlur: 0
-          },
-          moveHandleSize: 0,
+          backgroundColor: '#eef2f6',
+          fillerColor: '#b4bcc6',
+          handleSize: 0,
           showDetail: false,
           showDataShadow: false,
           brushSelect: false,
+          moveHandleSize: 0,
+          dataBackground: {
+            lineStyle: { opacity: 0 },
+            areaStyle: { opacity: 0 }
+          },
+          selectedDataBackground: {
+            lineStyle: { opacity: 0 },
+            areaStyle: { opacity: 0 }
+          },
+          emphasis: {
+            moveHandleStyle: {
+              opacity: 0
+            }
+          },
           start: 0,
           end: 100
         }
@@ -1289,7 +1300,7 @@ redirect_from:
         {
           type: 'bar',
           data: yearlyPapersData.map(item => item.value),
-          barWidth: isMobile ? 16 : 20,
+          barWidth: isMobile ? 12 : 14,
           itemStyle: {
             color: '#979797',
             borderRadius: [0, 0, 0, 0]
