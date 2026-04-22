@@ -557,13 +557,13 @@ redirect_from:
   }
 
   .stats-yearly-wrap {
-    margin-top: 1rem;
-    padding-top: 0.95rem;
-    border-top: 1px solid var(--line);
+    margin-top: 0.9rem;
+    padding-top: 0;
+    border-top: none;
   }
 
   .stats-yearly-title {
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.45rem;
     font-size: 0.78rem;
     font-weight: 700;
     color: var(--muted);
@@ -1057,8 +1057,8 @@ redirect_from:
     </div>
 
     <div class="stats-yearly-wrap">
-      <div class="stats-yearly-title">Papers per year</div>
       <div class="stats-mini-chart-frame">
+        <div class="stats-yearly-title">Papers per year</div>
         <div id="yearly-papers-chart" class="stats-mini-chart"></div>
       </div>
     </div>
