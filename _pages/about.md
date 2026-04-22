@@ -1094,13 +1094,101 @@ redirect_from:
     { year: '2026', value: 2 }
   ];
 
+  function buildPieOption() {
+    const isMobile = window.innerWidth <= 768;
+
+    return {
+      tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+        backgroundColor: 'rgba(255,255,255,0.98)',
+        borderColor: '#e7ebf0',
+        borderWidth: 1,
+        textStyle: {
+          color: '#1f2328',
+          fontFamily: 'Inter, Arial, sans-serif'
+        }
+      },
+      color: ['#2f5f8f', '#4f7aa6', '#7b9bbb', '#b7c8d9', '#d7e2ec'],
+      legend: {
+        bottom: 4,
+        left: 'center',
+        icon: 'circle',
+        itemWidth: 9,
+        itemHeight: 9,
+        itemGap: isMobile ? 12 : 16,
+        textStyle: {
+          color: '#4b5563',
+          fontSize: isMobile ? 11 : 12,
+          fontFamily: 'Inter, Arial, sans-serif'
+        }
+      },
+      graphic: [
+        {
+          type: 'text',
+          left: 'center',
+          top: '40%',
+          style: {
+            text: '6',
+            textAlign: 'center',
+            textVerticalAlign: 'middle',
+            fill: '#0f172a',
+            fontSize: isMobile ? 28 : 34,
+            fontWeight: 800,
+            fontFamily: 'Inter, Arial, sans-serif'
+          }
+        }
+      ],
+      series: [
+        {
+          type: 'pie',
+          left: isMobile ? 16 : 24,
+          right: isMobile ? 16 : 24,
+          top: isMobile ? 30 : 30,
+          bottom: isMobile ? 30 : 30,
+          radius: isMobile ? ['50%', '72%'] : ['58%', '82%'],
+          center: ['50%', '45%'],
+          minAngle: 8,
+          avoidLabelOverlap: true,
+          itemStyle: {
+            borderColor: '#ffffff',
+            borderWidth: 3,
+            shadowBlur: 8,
+            shadowColor: 'rgba(15, 23, 42, 0.05)'
+          },
+          label: {
+            color: '#475467',
+            fontSize: isMobile ? 10 : 11,
+            fontWeight: 600,
+            formatter: isMobile ? '{b}\n{c}' : '{b}: {c}',
+            width: isMobile ? 52 : 76,
+            overflow: 'break'
+          },
+          labelLine: {
+            length: isMobile ? 6 : 8,
+            length2: isMobile ? 6 : 9,
+            maxSurfaceAngle: 80,
+            lineStyle: {
+              color: '#cbd5e1'
+            }
+          },
+          emphasis: {
+            scale: true,
+            scaleSize: 4
+          },
+          data: allPapersData
+        }
+      ]
+    };
+  }
+
   function buildYearlyBarOption() {
     const isMobile = window.innerWidth <= 768;
     const visibleCount = isMobile ? 5 : 6;
     const totalCount = yearlyPapersData.length;
     const enableZoom = totalCount > visibleCount;
     const endPercent = enableZoom ? (visibleCount / totalCount) * 100 : 100;
-  
+
     return {
       animationDuration: 700,
       grid: {
@@ -1222,139 +1310,6 @@ redirect_from:
             }
           ]
         : [],
-      series: [
-        {
-          type: 'bar',
-          data: yearlyPapersData.map(item => item.value),
-          barWidth: isMobile ? 12 : 14,
-          itemStyle: {
-            color: '#979797',
-            borderRadius: [0, 0, 0, 0]
-          },
-          emphasis: {
-            itemStyle: {
-              color: '#7f7f7f'
-            }
-          }
-        }
-      ]
-    };
-  }
-
-  function buildYearlyBarOption() {
-    const isMobile = window.innerWidth <= 768;
-
-    return {
-      animationDuration: 700,
-      grid: {
-        left: 8,
-        right: 8,
-        top: 8,
-        bottom: 24,
-        containLabel: true
-      },
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'shadow',
-          shadowStyle: {
-            color: 'rgba(36, 91, 146, 0.05)'
-          }
-        },
-        formatter: function (params) {
-          const item = params[0];
-          return item.name + ': ' + item.value;
-        },
-        backgroundColor: 'rgba(255,255,255,0.98)',
-        borderColor: '#e7ebf0',
-        borderWidth: 1,
-        textStyle: {
-          color: '#1f2328',
-          fontFamily: 'Inter, Arial, sans-serif'
-        }
-      },
-      xAxis: {
-        type: 'category',
-        data: yearlyPapersData.map(item => item.year),
-        axisLine: {
-          lineStyle: {
-            color: '#d7dee7'
-          }
-        },
-        axisTick: {
-          show: false
-        },
-        axisLabel: {
-          color: '#667085',
-          fontSize: isMobile ? 10 : 11,
-          margin: 10,
-          fontFamily: 'Inter, Arial, sans-serif'
-        }
-      },
-      yAxis: {
-        type: 'value',
-        min: 0,
-        interval: 1,
-        splitNumber: 3,
-        splitLine: {
-          lineStyle: {
-            color: '#eef2f6'
-          }
-        },
-        axisLine: {
-          show: false
-        },
-        axisTick: {
-          show: false
-        },
-        axisLabel: {
-          color: '#667085',
-          fontSize: isMobile ? 10 : 11,
-          fontFamily: 'Inter, Arial, sans-serif'
-        }
-      },
-      dataZoom: [
-        {
-          type: 'inside',
-          xAxisIndex: 0,
-          filterMode: 'none',
-          zoomLock: false,
-          moveOnMouseMove: true,
-          moveOnMouseWheel: true,
-          preventDefaultMouseMove: false,
-          start: 0,
-          end: 100
-        },
-        {
-          type: 'slider',
-          xAxisIndex: 0,
-          height: 5,
-          bottom: 4,
-          borderColor: 'transparent',
-          backgroundColor: '#eef2f6',
-          fillerColor: '#b4bcc6',
-          handleSize: 0,
-          showDetail: false,
-          showDataShadow: false,
-          brushSelect: false,
-          moveHandleSize: 0,
-          dataBackground: {
-            lineStyle: { opacity: 0 },
-            areaStyle: { opacity: 0 }
-          },
-          selectedDataBackground: {
-            lineStyle: { opacity: 0 },
-            areaStyle: { opacity: 0 }
-          },
-          emphasis: {
-            moveHandleStyle: {
-              opacity: 0
-            }
-          },
-          start: 0,
-          end: 100
-        }
-      ],
       series: [
         {
           type: 'bar',
