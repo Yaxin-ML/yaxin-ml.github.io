@@ -556,6 +556,27 @@ redirect_from:
     line-height: 1.1;
   }
 
+  .stats-yearly-wrap {
+    margin-top: 1rem;
+    padding-top: 0.95rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .stats-yearly-title {
+    margin: 0 0 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .stats-mini-chart {
+    width: 100%;
+    height: 220px;
+  }
+
   .subheading {
     margin: 1.65rem 0 0.95rem;
     font-size: 1rem;
@@ -878,6 +899,10 @@ redirect_from:
     .stats-metric-value {
       font-size: 1.02rem;
     }
+
+    .stats-mini-chart {
+      height: 200px;
+    }
   }
 </style>
 
@@ -1022,6 +1047,11 @@ redirect_from:
         <span class="stats-metric-value">1</span>
       </div>
     </div>
+
+    <div class="stats-yearly-wrap">
+      <div class="stats-yearly-title">Papers per year</div>
+      <div id="yearly-papers-chart" class="stats-mini-chart"></div>
+    </div>
   </div>
 </div>
 
@@ -1033,12 +1063,25 @@ redirect_from:
     { renderer: 'svg' }
   );
 
+  const yearlyPapersChart = echarts.init(
+    document.getElementById('yearly-papers-chart'),
+    null,
+    { renderer: 'svg' }
+  );
+
   const allPapersData = [
     { value: 1, name: 'ICLR' },
     { value: 1, name: 'NeurIPS' },
     { value: 1, name: 'ICML' },
     { value: 2, name: 'AAAI' },
     { value: 1, name: 'Inf. Sci.' }
+  ];
+
+  const yearlyPapersData = [
+    { year: '2023', value: 1 },
+    { year: '2024', value: 1 },
+    { year: '2025', value: 2 },
+    { year: '2026', value: 2 }
   ];
 
   function buildPieOption() {
@@ -1129,9 +1172,113 @@ redirect_from:
     };
   }
 
+  function buildYearlyBarOption() {
+    const isMobile = window.innerWidth <= 768;
+
+    return {
+      animationDuration: 700,
+      grid: {
+        left: 8,
+        right: 8,
+        top: 10,
+        bottom: 8,
+        containLabel: true
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow',
+          shadowStyle: {
+            color: 'rgba(36, 91, 146, 0.06)'
+          }
+        },
+        formatter: function (params) {
+          const item = params[0];
+          return item.name + ': ' + item.value;
+        },
+        backgroundColor: 'rgba(255,255,255,0.98)',
+        borderColor: '#e7ebf0',
+        borderWidth: 1,
+        textStyle: {
+          color: '#1f2328',
+          fontFamily: 'Inter, Arial, sans-serif'
+        }
+      },
+      xAxis: {
+        type: 'category',
+        data: yearlyPapersData.map(item => item.year),
+        axisLine: {
+          lineStyle: {
+            color: '#d7dee7'
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          color: '#667085',
+          fontSize: isMobile ? 10 : 11,
+          fontFamily: 'Inter, Arial, sans-serif'
+        }
+      },
+      yAxis: {
+        type: 'value',
+        min: 0,
+        interval: 1,
+        splitNumber: 3,
+        splitLine: {
+          lineStyle: {
+            color: '#edf2f7'
+          }
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          color: '#667085',
+          fontSize: isMobile ? 10 : 11,
+          fontFamily: 'Inter, Arial, sans-serif'
+        }
+      },
+      series: [
+        {
+          type: 'bar',
+          data: yearlyPapersData.map(item => item.value),
+          barWidth: isMobile ? 18 : 22,
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#5a89b6' },
+              { offset: 1, color: '#245b92' }
+            ]),
+            borderRadius: [8, 8, 0, 0],
+            shadowBlur: 10,
+            shadowColor: 'rgba(36, 91, 146, 0.12)'
+          },
+          emphasis: {
+            itemStyle: {
+              color: '#2f5f8f'
+            }
+          },
+          label: {
+            show: true,
+            position: 'top',
+            color: '#475467',
+            fontSize: isMobile ? 10 : 11,
+            fontWeight: 700
+          }
+        }
+      ]
+    };
+  }
+
   function renderCharts() {
     allPapersChart.setOption(buildPieOption(), true);
+    yearlyPapersChart.setOption(buildYearlyBarOption(), true);
     allPapersChart.resize();
+    yearlyPapersChart.resize();
   }
 
   renderCharts();
@@ -1139,16 +1286,20 @@ redirect_from:
   if (typeof ResizeObserver !== 'undefined') {
     const resizeObserver = new ResizeObserver(function () {
       allPapersChart.resize();
+      yearlyPapersChart.resize();
     });
 
-    const chartEl = document.getElementById('all-papers-chart');
-    if (chartEl) resizeObserver.observe(chartEl);
+    const pieChartEl = document.getElementById('all-papers-chart');
+    const barChartEl = document.getElementById('yearly-papers-chart');
+    if (pieChartEl) resizeObserver.observe(pieChartEl);
+    if (barChartEl) resizeObserver.observe(barChartEl);
   } else {
     let resizeTimer = null;
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () {
         allPapersChart.resize();
+        yearlyPapersChart.resize();
       }, 120);
     });
   }
