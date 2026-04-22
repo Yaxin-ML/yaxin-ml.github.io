@@ -572,9 +572,17 @@ redirect_from:
     text-transform: uppercase;
   }
 
+  .stats-mini-chart-frame {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(248,250,252,0.96) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+    padding: 0.55rem 0.55rem 0.35rem;
+  }
+
   .stats-mini-chart {
     width: 100%;
-    height: 220px;
+    height: 250px;
   }
 
   .subheading {
@@ -901,7 +909,7 @@ redirect_from:
     }
 
     .stats-mini-chart {
-      height: 200px;
+      height: 230px;
     }
   }
 </style>
@@ -1050,7 +1058,9 @@ redirect_from:
 
     <div class="stats-yearly-wrap">
       <div class="stats-yearly-title">Papers per year</div>
-      <div id="yearly-papers-chart" class="stats-mini-chart"></div>
+      <div class="stats-mini-chart-frame">
+        <div id="yearly-papers-chart" class="stats-mini-chart"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -1178,10 +1188,10 @@ redirect_from:
     return {
       animationDuration: 700,
       grid: {
-        left: 8,
-        right: 8,
-        top: 10,
-        bottom: 8,
+        left: 12,
+        right: 14,
+        top: 16,
+        bottom: 54,
         containLabel: true
       },
       tooltip: {
@@ -1225,7 +1235,7 @@ redirect_from:
         type: 'value',
         min: 0,
         interval: 1,
-        splitNumber: 3,
+        splitNumber: 4,
         splitLine: {
           lineStyle: {
             color: '#edf2f7'
@@ -1243,31 +1253,48 @@ redirect_from:
           fontFamily: 'Inter, Arial, sans-serif'
         }
       },
+      dataZoom: [
+        {
+          type: 'inside',
+          xAxisIndex: 0,
+          filterMode: 'none',
+          zoomLock: false,
+          moveOnMouseMove: true,
+          moveOnMouseWheel: true,
+          preventDefaultMouseMove: false,
+          start: 0,
+          end: 100
+        },
+        {
+          type: 'slider',
+          xAxisIndex: 0,
+          height: 16,
+          bottom: 10,
+          borderColor: 'transparent',
+          backgroundColor: '#eef2f6',
+          fillerColor: '#8d97a3',
+          handleSize: 0,
+          showDetail: false,
+          showDataShadow: false,
+          brushSelect: false,
+          moveHandleSize: 0,
+          start: 0,
+          end: 100
+        }
+      ],
       series: [
         {
           type: 'bar',
           data: yearlyPapersData.map(item => item.value),
           barWidth: isMobile ? 18 : 22,
           itemStyle: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: '#5a89b6' },
-              { offset: 1, color: '#245b92' }
-            ]),
-            borderRadius: [8, 8, 0, 0],
-            shadowBlur: 10,
-            shadowColor: 'rgba(36, 91, 146, 0.12)'
+            color: '#8a8a8a',
+            borderRadius: [0, 0, 0, 0]
           },
           emphasis: {
             itemStyle: {
-              color: '#2f5f8f'
+              color: '#6f6f6f'
             }
-          },
-          label: {
-            show: true,
-            position: 'top',
-            color: '#475467',
-            fontSize: isMobile ? 10 : 11,
-            fontWeight: 700
           }
         }
       ]
