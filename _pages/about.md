@@ -964,11 +964,11 @@ redirect_from:
     </li>
     <li class="news-item">
       <div class="news-date">2025.09</div>
-      <div class="news-content">🎉 Our work “Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning” is accepted by NeurIPS 2025.<span class="news-links"><a class="news-btn" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116160" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/YaxinHou/CPG" target="_blank">💻 Code</a></span></div>
+      <div class="news-content">🎉 Our work “Keep It on a Leash: Controllable Pseudo-label Generation Towards Realistic Long-Tailed Semi-Supervised Learning” is accepted by NeurIPS 2025.<span class="news-links"><a class="news-btn" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116160" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/Yaxin-ML/CPG" target="_blank">💻 Code</a></span></div>
     </li>
     <li class="news-item">
       <div class="news-date">2025.05</div>
-      <div class="news-content">🎉 Our work “A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning” is accepted by ICML 2025.<span class="news-links"><a class="news-btn" href="https://icml.cc/virtual/2025/poster/44441" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/YaxinHou/Meta-Expert" target="_blank">💻 Code</a></span></div>
+      <div class="news-content">🎉 Our work “A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning” is accepted by ICML 2025.<span class="news-links"><a class="news-btn" href="https://icml.cc/virtual/2025/poster/44441" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/Yaxin-ML/Meta-Expert" target="_blank">💻 Code</a></span></div>
     </li>
   </ul>
 
@@ -1380,7 +1380,7 @@ redirect_from:
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Bo Han, Yuheng Jia, Hui Liu, Junhui Hou.</div>
       <div class="pub-links">
         <a class="pub-btn" href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116160" target="_blank">📄 Paper</a>
-        <a class="pub-btn secondary" href="https://github.com/YaxinHou/CPG" target="_blank">💻 Code</a>
+        <a class="pub-btn secondary" href="https://github.com/Yaxin-ML/CPG" target="_blank">💻 Code</a>
       </div>
     </div>
   </div>
@@ -1397,7 +1397,7 @@ redirect_from:
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Yuheng Jia.</div>
       <div class="pub-links">
         <a class="pub-btn" href="https://icml.cc/virtual/2025/poster/44441" target="_blank">📄 Paper</a>
-        <a class="pub-btn secondary" href="https://github.com/YaxinHou/Meta-Expert" target="_blank">💻 Code</a>
+        <a class="pub-btn secondary" href="https://github.com/Yaxin-ML/Meta-Expert" target="_blank">💻 Code</a>
       </div>
     </div>
   </div>
@@ -1414,7 +1414,7 @@ redirect_from:
       <div class="pub-authors">Chongsheng Zhang, <strong style="color:#111827;">Yaxin Hou</strong>, Ke Chen, Shuang Cao, Gaojuan Fan, Ji Liu.</div>
       <div class="pub-links">
         <a class="pub-btn" href="https://ojs.aaai.org/index.php/AAAI/article/view/25811" target="_blank">📄 Paper</a>
-        <a class="pub-btn secondary" href="https://github.com/yaxinhou/QAST" target="_blank">💻 Code</a>
+        <a class="pub-btn secondary" href="https://github.com/Yaxin-ML/QAST" target="_blank">💻 Code</a>
       </div>
     </div>
   </div>
@@ -1434,7 +1434,7 @@ redirect_from:
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Weiping Ding, Chongsheng Zhang.</div>
       <div class="pub-links">
         <a class="pub-btn" href="https://www.sciencedirect.com/science/article/pii/S002002552400985X" target="_blank">📄 Paper</a>
-        <a class="pub-btn secondary" href="https://github.com/yaxinhou/imFTP" target="_blank">💻 Code</a>
+        <a class="pub-btn secondary" href="https://github.com/Yaxin-ML/imFTP" target="_blank">💻 Code</a>
       </div>
     </div>
   </div>
