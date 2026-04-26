@@ -224,14 +224,6 @@ redirect_from:
     z-index: -1;
   }
 
-  .hero::after {
-    content: '';
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(36, 91, 146, 0.95), rgba(79, 134, 186, 0.38), rgba(255, 255, 255, 0));
-  }
-
   .hero-text {
     min-width: 0;
   }
