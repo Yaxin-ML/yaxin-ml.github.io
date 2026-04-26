@@ -904,12 +904,316 @@ redirect_from:
       height: 148px;
     }
   }
+
+
+  /* === Additional polished visual layer === */
+  :root {
+    --ink: #111827;
+    --glow: 0 0 0 1px rgba(255,255,255,0.72), 0 28px 70px rgba(36,91,146,0.13);
+    --accent-rgb: 36, 91, 146;
+  }
+
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    z-index: -2;
+    pointer-events: none;
+    border-radius: 999px;
+    filter: blur(3px);
+  }
+
+  body::before {
+    width: 420px;
+    height: 420px;
+    right: -170px;
+    top: 60px;
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.12), transparent 64%);
+  }
+
+  body::after {
+    width: 360px;
+    height: 360px;
+    left: -165px;
+    bottom: 8%;
+    background: radial-gradient(circle, rgba(143,178,209,0.16), transparent 66%);
+  }
+
+  .page__content {
+    animation: pageFadeIn 0.72s ease both;
+  }
+
+  @keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 0;
+    margin-top: 3.6rem;
+  }
+
+  h3::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    margin-left: 0.45rem;
+    background: linear-gradient(90deg, var(--line-strong), transparent);
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    padding: 2.05rem 2rem;
+    border: 1px solid rgba(255,255,255,0.72);
+    background:
+      radial-gradient(circle at 88% 12%, rgba(90,137,182,0.18), transparent 30%),
+      radial-gradient(circle at 10% 90%, rgba(143,178,209,0.18), transparent 34%),
+      linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(246,250,254,0.92) 100%);
+    box-shadow: var(--glow);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: auto -20% -45% 26%;
+    height: 160px;
+    background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb),0.10), transparent);
+    transform: rotate(-8deg);
+    pointer-events: none;
+  }
+
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    margin-bottom: 0.62rem;
+    padding: 0.28rem 0.72rem;
+    border: 1px solid rgba(var(--accent-rgb),0.16);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.72);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+
+  .hero-title {
+    margin: 0 0 0.32rem;
+    color: var(--ink);
+    font-size: clamp(1.72rem, 4vw, 2.65rem);
+    line-height: 1.08;
+    font-weight: 900;
+    letter-spacing: -0.045em;
+  }
+
+  .hero-subtitle {
+    margin: 0 0 0.95rem;
+    color: var(--muted);
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.55;
+  }
+
+  .hero-text p {
+    max-width: 760px;
+    color: #344054;
+  }
+
+  .hero-chip,
+  .pub-tag,
+  .news-date {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-chip::before,
+  .pub-tag::before,
+  .news-date::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.55) 45%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.55s ease;
+  }
+
+  .hero-chip:hover::before,
+  .pub-tag:hover::before,
+  .news-date:hover::before {
+    transform: translateX(120%);
+  }
+
+  .logo-panel a,
+  .pub-card,
+  .news-box,
+  .stats-card,
+  .stats-summary-card,
+  .info-card,
+  .contact-card {
+    position: relative;
+  }
+
+  .logo-panel a::before,
+  .pub-card::before,
+  .stats-card::before,
+  .stats-summary-card::before,
+  .info-card::before,
+  .contact-card::before,
+  .news-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.92), transparent 42%);
+    opacity: 0.72;
+  }
+
+  .news-box,
+  .stats-card,
+  .stats-summary-card,
+  .info-card,
+  .contact-card,
+  .pub-card {
+    border-color: rgba(214,226,239,0.9);
+    box-shadow: 0 10px 28px rgba(15,23,42,0.055), inset 0 1px 0 rgba(255,255,255,0.85);
+  }
+
+  .news-item {
+    position: relative;
+  }
+
+  .news-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, rgba(var(--accent-rgb),0.34), transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .news-item:hover::before {
+    opacity: 1;
+  }
+
+  .pub-card {
+    overflow: hidden;
+  }
+
+  .pub-card::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-3), transparent);
+    opacity: 0;
+    transition: opacity 0.22s ease;
+  }
+
+  .pub-card:hover::after {
+    opacity: 1;
+  }
+
+  .pub-thumb {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 8px 18px rgba(15,23,42,0.045);
+  }
+
+  .paper-badge {
+    background: linear-gradient(135deg, rgba(15,23,42,0.92), rgba(36,91,146,0.86));
+  }
+
+  .pub-btn,
+  .news-btn,
+  .news-page-btn {
+    will-change: transform;
+  }
+
+  .pub-btn:hover,
+  .news-btn:hover,
+  .news-page-btn:hover:not(:disabled) {
+    box-shadow: 0 8px 18px rgba(var(--accent-rgb),0.13);
+  }
+
+  .stats-metric-item {
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .stats-metric-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--line-strong);
+    box-shadow: 0 9px 20px rgba(15,23,42,0.055);
+  }
+
+  .stats-metric-value {
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--title), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .contact-card {
+    text-align: center;
+  }
+
+  .map-shell {
+    max-width: 360px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xs);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 1.2rem;
+      border-radius: 22px;
+    }
+
+    .hero-links {
+      gap: 0.5rem;
+    }
+
+    .hero-chip {
+      font-size: 0.76rem;
+      padding: 0.36rem 0.72rem;
+    }
+  }
+
 </style>
 
 ### 👨‍🎓 Profile
 
 <div class="hero">
   <div class="hero-text">
+    <div class="hero-kicker">Research Portfolio</div>
+    <h1 class="hero-title">Yaxin Hou</h1>
+    <div class="hero-subtitle">Ph.D. Student · Machine Learning · Southeast University</div>
     <p>
       I am currently a Ph.D. student at Southeast University, under the supervision of
       <a href="https://jyh-learning.github.io"><strong>Prof. Yuheng Jia</strong></a>.
@@ -1479,7 +1783,7 @@ redirect_from:
 ### 📧 Contact
 
 <div class="contact-card">
-  <div>Room 1009, Liberal Arts Building, School of Computer Science and Engineering.</div>
+  <div><strong>Office</strong> · Room 1009, Liberal Arts Building, School of Computer Science and Engineering.</div>
   <div class="map-shell">
     <div>
       <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=4D0h1VqEfuXzDioG4SfurpFAjXyS5BKdHFuIwYdKIHE&cl=ffffff&w=a"></script>
