@@ -1754,7 +1754,7 @@ redirect_from:
   <div class="pub-card">
     <div class="pub-thumb">
       <div class="paper-badge">CCF B</div>
-      <img src="./images/imFTP.png" alt="Publication Image">
+      <img src="./images/imFTP.svg" alt="Publication Image">
     </div>
     <div>
       <div class="pub-tags"><span class="pub-tag">Journal</span><span class="pub-tag">CCF B</span><span class="pub-tag">2024</span></div>
