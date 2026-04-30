@@ -1717,7 +1717,7 @@ redirect_from:
   <div class="pub-card">
     <div class="pub-thumb">
       <div class="paper-badge">CCF A</div>
-      <img src="./images/Meta-Expert.png" alt="Publication Image">
+      <img src="./images/Meta-Expert.svg" alt="Publication Image">
     </div>
     <div>
       <div class="pub-tags"><span class="pub-tag">Conference</span><span class="pub-tag">CCF A</span><span class="pub-tag">2025</span></div>
