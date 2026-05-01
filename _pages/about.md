@@ -1704,6 +1704,23 @@ redirect_from:
   <div class="pub-card">
     <div class="pub-thumb">
       <div class="paper-badge">CCF A</div>
+      <img src="./images/Coming-Soon.svg" alt="Publication Image">
+    </div>
+    <div>
+      <div class="pub-tags"><span class="pub-tag">Conference</span><span class="pub-tag">CCF A</span><span class="pub-tag">2026</span></div>
+      <div class="pub-meta">International Conference on Machine Learning (ICML), 2026.</div>
+      <div class="pub-title">Beyond Distribution Estimation: Simplex Anchored Structural Inference Towards Universal Semi-supervised Learning.</div>
+      <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Jun Ma, Hanyang Li, Bo Han, Jie Yu, Yuheng Jia.</div>
+      <div class="pub-links">
+        <a class="pub-btn" href="" target="_blank">📄 Paper</a>
+        <a class="pub-btn secondary" href="" target="_blank">💻 Code</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-card">
+    <div class="pub-thumb">
+      <div class="paper-badge">CCF A</div>
       <img src="./images/CPG.svg" alt="Publication Image">
     </div>
     <div>
