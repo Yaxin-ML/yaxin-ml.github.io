@@ -1280,7 +1280,7 @@ redirect_from:
 <div class="news-box">
   <ul class="news-list" id="news-list">
     <li class="news-item">
-      <div class="news-date">2026.01</div>
+      <div class="news-date">2026.05</div>
       <div class="news-content">🎉 Our work “Beyond Distribution Estimation: Simplex Anchored Structural Inference Towards Universal Semi-supervised Learning” is accepted by ICML 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
     </li>
     <li class="news-item">
