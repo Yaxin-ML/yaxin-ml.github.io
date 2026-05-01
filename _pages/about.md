@@ -1281,7 +1281,7 @@ redirect_from:
   <ul class="news-list" id="news-list">
     <li class="news-item">
       <div class="news-date">2026.05</div>
-      <div class="news-content">🎉 Our work “Beyond Distribution Estimation: Simplex Anchored Structural Inference Towards Universal Semi-supervised Learning” is accepted by ICML 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
+      <div class="news-content">🎉 Our work “Beyond Distribution Estimation: Simplex Anchored Structural Inference Towards Universal Semi-Supervised Learning” is accepted by ICML 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
     </li>
     <li class="news-item">
       <div class="news-date">2026.01</div>
@@ -1709,7 +1709,7 @@ redirect_from:
     <div>
       <div class="pub-tags"><span class="pub-tag">Conference</span><span class="pub-tag">CCF A</span><span class="pub-tag">2026</span></div>
       <div class="pub-meta">International Conference on Machine Learning (ICML), 2026.</div>
-      <div class="pub-title">Beyond Distribution Estimation: Simplex Anchored Structural Inference Towards Universal Semi-supervised Learning.</div>
+      <div class="pub-title">Beyond Distribution Estimation: Simplex Anchored Structural Inference Towards Universal Semi-Supervised Learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Jun Ma, Hanyang Li, Bo Han, Jie Yu, Yuheng Jia.</div>
       <div class="pub-links">
         <a class="pub-btn" href="" target="_blank">📄 Paper</a>
