@@ -1252,7 +1252,7 @@ redirect_from:
       <a href="https://jyh-learning.github.io"><strong>Prof. Yuheng Jia</strong></a>.
       I received my M.S. degree from Henan University in 2023, under the supervision of
       <a href="https://cs.henu.edu.cn/info/1273/5566.htm"><strong>Prof. Chongsheng Zhang</strong></a>.
-      Before that, I obtained my B.S. degree in 2020 from Henan Institute of Engineering.
+      Before that, I obtained my B.S. degree in 2020 from Henan University of Engineering.
       My research interests lie in machine learning, with a focus on long-tailed learning, weakly supervised learning, and vision-language models.
     </p>
     <div class="hero-links">
