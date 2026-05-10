@@ -1837,7 +1837,7 @@ redirect_from:
 ### 📧 Contact
 
 <div class="contact-card">
-  <div><strong>Office</strong> · Room 1009, Liberal Arts Building, School of Computer Science and Engineering.</div>
+  <div>Room 1009, Liberal Arts Building, School of Computer Science and Engineering.</div>
   <div class="map-shell">
     <div>
       <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=4D0h1VqEfuXzDioG4SfurpFAjXyS5BKdHFuIwYdKIHE&cl=ffffff&w=a"></script>
