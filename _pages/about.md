@@ -1800,8 +1800,8 @@ redirect_from:
 <div class="subheading">Conference Reviewer / Program Committee Member</div>
 <div class="info-card">
   <ul class="compact-list">
-    <li>The International Conference on Machine Learning (ICML), 2026.</li>
     <li>The European Conference on Computer Vision (ECCV), 2026.</li>
+    <li>The International Conference on Machine Learning (ICML), 2026.</li>
     <li>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
     <li>The Annual Conference on Neural Information Processing Systems (NeurIPS), 2025-2026.</li>
     <li>The IEEE International Symposium on Machine Learning and Media Computing (MLMC), 2025–2026.</li>
@@ -1811,9 +1811,9 @@ redirect_from:
 <div class="subheading">Journal Reviewer</div>
 <div class="info-card">
   <ul class="compact-list">
-    <li>International Journal of Machine Learning and Cybernetics (IJMLC).</li>
-    <li>Transactions on Machine Learning Research (TMLR).</li>
     <li>Pattern Recognition (PR).</li>
+    <li>Transactions on Machine Learning Research (TMLR).</li>
+    <li>International Journal of Machine Learning and Cybernetics (IJMLC).</li>
   </ul>
 </div>
 
