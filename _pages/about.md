@@ -1800,6 +1800,7 @@ redirect_from:
 <div class="subheading">Conference Reviewer / Program Committee Member</div>
 <div class="info-card">
   <ul class="compact-list">
+    <li>The British Machine Vision Conference (BMVC), 2026.</li>
     <li>The European Conference on Computer Vision (ECCV), 2026.</li>
     <li>The International Conference on Machine Learning (ICML), 2026.</li>
     <li>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
