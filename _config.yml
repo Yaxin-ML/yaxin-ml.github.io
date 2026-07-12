@@ -23,7 +23,7 @@ repository               : "https://github.com/Yaxin-ML/yaxin-ml.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "my_profile.jpg"
+  avatar           : "my_profile.png"
   name             : "Hou Yaxin"
   pronouns         : "He/Him"  
   bio              : "Man proposes, god disposes."
