@@ -1280,6 +1280,10 @@ redirect_from:
 <div class="news-box">
   <ul class="news-list" id="news-list">
     <li class="news-item">
+      <div class="news-date">2026.07</div>
+      <div class="news-content">🎉 Received the Outstanding Reviewer Award from IEEE MLMC 2026.</div>
+    </li>
+    <li class="news-item">
       <div class="news-date">2026.06</div>
       <div class="news-content">🎉 Our work “Fragmented Text Is Insufficient for Image Representation: Fine-Grained Correspondence in Multimodal Dataset Distillation” is accepted by ECCV 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
     </li>
