@@ -1837,6 +1837,7 @@ redirect_from:
 <div class="subheading">Honors</div>
 <div class="info-card">
   <ul class="compact-list">
+    <li>Outstanding Reviewer Award (2026, IEEE International Symposium on Machine Learning and Media Computing).</li>
     <li>Merit Graduate Student (2025, Southeast University).</li>
     <li>Outstanding Graduate Student (2023, Henan University).</li>
     <li>Outstanding Graduate (2020, The Henan Department of Education).</li>
