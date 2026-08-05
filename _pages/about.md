@@ -1789,7 +1789,7 @@ redirect_from:
     <div>
       <div class="pub-tags"><span class="pub-tag">Journal</span><span class="pub-tag">CCF B</span><span class="pub-tag">2024</span></div>
       <div class="pub-meta">Information Sciences (Inf. Sci.), 2024.</div>
-      <div class="pub-title">imFTP: Deep imbalance learning via fuzzy transition and prototypical learning.</div>
+      <div class="pub-title">imFTP: Deep Imbalance Learning via Fuzzy Transition and Prototypical Learning.</div>
       <div class="pub-authors"><strong style="color:#111827;">Yaxin Hou</strong>, Weiping Ding, Chongsheng Zhang.</div>
       <div class="pub-links">
         <a class="pub-btn" href="https://www.sciencedirect.com/science/article/pii/S002002552400985X" target="_blank">📄 Paper</a>
