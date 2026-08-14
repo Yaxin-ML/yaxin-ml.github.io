@@ -1245,7 +1245,7 @@ redirect_from:
 
 <div class="hero">
   <div class="hero-text">
-    <h1 class="hero-title">Hou Yaxin</h1>
+    <h2 class="hero-title">Hou Yaxin</h2>
     <div class="hero-subtitle">Ph.D. Student · Machine Learning · Southeast University</div>
     <p>
       I am currently a Ph.D. student at Southeast University, under the supervision of
