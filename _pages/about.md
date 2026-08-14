@@ -1015,7 +1015,7 @@ redirect_from:
     margin: 0 0 0.95rem;
     color: var(--muted);
     font-size: 0.98rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.55;
   }
 
