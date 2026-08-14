@@ -1007,7 +1007,7 @@ redirect_from:
     color: var(--ink);
     font-size: clamp(1.72rem, 4vw, 2.65rem);
     line-height: 1.08;
-    font-weight: 900;
+    font-weight: 600;
     letter-spacing: -0.045em;
   }
 
@@ -1245,7 +1245,7 @@ redirect_from:
 
 <div class="hero">
   <div class="hero-text">
-    <h2 class="hero-title">Hou Yaxin</h2>
+    <h3 class="hero-title">Hou Yaxin</h3>
     <div class="hero-subtitle">Ph.D. Student · Machine Learning · Southeast University</div>
     <p>
       I am currently a Ph.D. student at Southeast University, under the supervision of
