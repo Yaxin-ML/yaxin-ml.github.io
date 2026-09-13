@@ -1817,6 +1817,7 @@ redirect_from:
 <div class="info-card">
   <ul class="compact-list">
     <li>Pattern Recognition (PR).</li>
+    <li>IEEE Transactions on Multimedia (TMM).</li>
     <li>Transactions on Machine Learning Research (TMLR).</li>
     <li>International Journal of Machine Learning and Cybernetics (IJMLC).</li>
   </ul>
