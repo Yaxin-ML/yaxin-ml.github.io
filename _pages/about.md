@@ -1491,7 +1491,7 @@ redirect_from:
           left: 'center',
           top: '40%',
           style: {
-            text: '8',
+            text: '13',
             textAlign: 'center',
             textVerticalAlign: 'middle',
             fill: '#0f172a',
