@@ -1285,7 +1285,7 @@ redirect_from:
     </li>
     <li class="news-item">
       <div class="news-date">2026.06</div>
-      <div class="news-content">🎉 Our work “Fragmented Text Is Insufficient for Image Representation: Fine-Grained Correspondence in Multimodal Dataset Distillation” is accepted by ECCV 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
+      <div class="news-content">🎉 Our work “Fragmented Text Is Insufficient for Image Representation: Fine-Grained Correspondence in Multimodal Dataset Distillation” is accepted by ECCV 2026.<span class="news-links"><a class="news-btn" href="https://eccv.ecva.net/virtual/2026/poster/3895" target="_blank">📄 Paper</a><a class="news-btn secondary" href="https://github.com/yiqiqiandefanhua/P2DE" target="_blank">💻 Code</a></span></div>
     </li>
     <li class="news-item">
       <div class="news-date">2026.05</div>
