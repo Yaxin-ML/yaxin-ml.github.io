@@ -1351,7 +1351,7 @@ redirect_from:
     if (!list || !prevBtn || !nextBtn || !pageInfo) return;
 
     const items = Array.from(list.querySelectorAll('.news-item'));
-    const perPage = 3;
+    const perPage = 5;
     const totalPages = Math.max(1, Math.ceil(items.length / perPage));
     let currentPage = 1;
 
