@@ -1280,6 +1280,26 @@ redirect_from:
 <div class="news-box">
   <ul class="news-list" id="news-list">
     <li class="news-item">
+      <div class="news-date">2026.09</div>
+      <div class="news-content">🎉 Our work “Attention Heads are Complementary Visual Units: Mitigating Hallucinations in LVLMs via Adaptive Visual Cues Focusing” is accepted by NeurIPS 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2026.09</div>
+      <div class="news-content">🎉 Our work “Progressive Pseudo-label Self-balancing Towards Unsupervised Vision-Language Models Adaptation” is accepted by NeurIPS 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2026.09</div>
+      <div class="news-content">🎉 Our work “Individuals Matter: Improving Deep Multi-View Clustering via Explicit Single-View Enhancement” is accepted by NeurIPS 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2026.09</div>
+      <div class="news-content">🎉 Our work “Exploiting Negative Multi-Cluster Structure in Class-Wise Embeddings for Weakly Supervised Multi-Label Learning” is accepted by NeurIPS 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
+    </li>
+    <li class="news-item">
+      <div class="news-date">2026.09</div>
+      <div class="news-content">🎉 Our work “Language-Assisted Image Clustering Guided by Discriminative Relational Signals and Adaptive Semantic Centers” is accepted by NeurIPS 2026.<span class="news-links"><a class="news-btn" href="" target="_blank">📄 Paper</a><a class="news-btn secondary" href="" target="_blank">💻 Code</a></span></div>
+    </li>
+    <li class="news-item">
       <div class="news-date">2026.07</div>
       <div class="news-content">🎉 Received the Outstanding Reviewer Award from IEEE MLMC 2026.</div>
     </li>
